@@ -1,15 +1,16 @@
 import pygame
 import random
+import typing
 
 
 class Node:
-    def __init__(self, x, y, tile_type):
+    def __init__(self, x: int, y: int, tile_type: str):
         self.x = x
         self.y = y
         self.tile_type = tile_type
         self.parent_node = None
 
-    def find_root(self):
+    def find_root(self) -> Node:  # why not defined?
         parent = self
         while parent.parent_node is not None:
             parent = parent.parent_node
@@ -50,6 +51,15 @@ class MapBoard:
             if tile1.find_root() != tile2.find_root():
                 tile1.find_root().parent_node = tile2
                 self.nodes[y][x].tile_type = "x"
+
+    def add_monster_tiles(self, num: int):
+        pass
+
+    def add_trap_tiles(self, num: int):
+        pass
+
+    def add_reward_tiles(self, num: int):
+        pass
 
     def display(self):
         self.kruskals_alg()
