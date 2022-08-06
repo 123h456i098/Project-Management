@@ -1,6 +1,5 @@
-import pygame
 import random
-import typing
+from typing import List
 
 
 class Node:
@@ -10,7 +9,7 @@ class Node:
         self.tile_type = tile_type
         self.parent_node = None
 
-    def find_root(self) -> Node:  # why not defined?
+    def find_root(self):  # why -> Node: not defined?
         parent = self
         while parent.parent_node is not None:
             parent = parent.parent_node
@@ -20,8 +19,16 @@ class Node:
 class MapBoard:
     def __init__(self, w: int, h: int):
         # Initialize a board, where - is a wall and x is a tile
+        self.w = w
+        self.h = h
         self.nodes = []
         self.edges = []
+        self.create_board(w, h)
+        self.kruskals_alg()
+        self.add_tiles()
+        self.display()
+
+    def create_board(self, w, h):
         tile = True
         for y in range(h + 1 if h % 2 == 0 else h):
             self.nodes.append([])
@@ -52,20 +59,61 @@ class MapBoard:
                 tile1.find_root().parent_node = tile2
                 self.nodes[y][x].tile_type = "x"
 
-    def add_monster_tiles(self, num: int):
-        pass
+    # Tiles:
+    # Player (will be a tile? - for now at least)
+    # Plain (walkable)
+    # Wall (unwalkable)
+    # Monsters (walkable)
+    # Shops (walkable)
+    # Treasure chests (walkable)
+    # Traps (that will be invisible, but not yet) (walkable)
+    # Questions (walkable)
+    # Start (walkable)
+    # Finish (walkable)
 
-    def add_trap_tiles(self, num: int):
-        pass
+    def create_tiles(self) -> List[str]:
+        tiles = [
+            "start",
+            "finish",
+            *["monster" for _ in range(random.randint(3, 6))],
+            *["shop" for _ in range(random.randint(0, 2))],
+            *["chest" for _ in range(random.randint(3, 5))],
+            *["trap" for _ in range(random.randint(0, 3))],
+            *["question" for _ in range(random.randint(2, 3))],
+        ]
+        random.shuffle(tiles)
+        return tiles
 
-    def add_reward_tiles(self, num: int):
-        pass
+    def add_tiles(self):  # There has to be a better way to do this
+        for tile_type in self.create_tiles():
+            tile = ""
+            while tile != "x":
+                print("test", tile)
+                tile = self.nodes[y := random.randint(0, self.h)][
+                    x := random.randint(0, self.w)
+                ].tile_type
+            self.nodes[y][x].tile_type = tile_type
+            print(self.nodes[y][x].tile_type, tile)
 
     def display(self):
-        self.kruskals_alg()
-        for row in self.nodes:
-            print(*["⬜" if node.tile_type == "x" else "⬛" for node in row])
-
-
-board = MapBoard(20, 20)
-board.display()
+        for y, row in enumerate(self.nodes):
+            for x, each in enumerate(row):
+                match each.tile_type:
+                    case "x":
+                        self.nodes[y][x].tile_type = "◻️"
+                    case "start":
+                        self.nodes[y][x].tile_type = "🟨"
+                    case "finish":
+                        self.nodes[y][x].tile_type = "🟩"
+                    case "monster":
+                        self.nodes[y][x].tile_type = "👹"
+                    case "shop":
+                        self.nodes[y][x].tile_type = "🛒"
+                    case "chest":
+                        self.nodes[y][x].tile_type = "🪙"
+                    case "trap":
+                        self.nodes[y][x].tile_type = "🪤"
+                    case "question":
+                        self.nodes[y][x].tile_type = "❓"
+                    case _:
+                        self.nodes[y][x].tile_type = "◼️"
