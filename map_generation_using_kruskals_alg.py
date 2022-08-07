@@ -75,8 +75,8 @@ class MapBoard:
         tiles = [
             "start",
             "finish",
-            *["monster" for _ in range(random.randint(3, 6))],
-            *["shop" for _ in range(random.randint(0, 2))],
+            *["monster" for _ in range(random.randint(6, 9))],
+            *["shop" for _ in range(random.randint(1, 2))],
             *["chest" for _ in range(random.randint(3, 5))],
             *["trap" for _ in range(random.randint(0, 3))],
             *["question" for _ in range(random.randint(2, 3))],
@@ -88,12 +88,10 @@ class MapBoard:
         for tile_type in self.create_tiles():
             tile = ""
             while tile != "x":
-                print("test", tile)
                 tile = self.nodes[y := random.randint(0, self.h)][
                     x := random.randint(0, self.w)
                 ].tile_type
             self.nodes[y][x].tile_type = tile_type
-            print(self.nodes[y][x].tile_type, tile)
 
     def display(self):
         for y, row in enumerate(self.nodes):
