@@ -1,5 +1,6 @@
 import random
 from typing import List
+from tiles import tiles
 
 
 class Node:
@@ -35,10 +36,10 @@ class MapBoard:
             for x in range(w + 1 if w % 2 == 0 else w):
                 if tile:
                     self.nodes[-1].append(
-                        Node(x, y, ("x" if y % 2 == 0 else "-"))
+                        Node(x, y, ("plain" if y % 2 == 0 else "wall"))
                     )
                 else:
-                    self.nodes[-1].append(Node(x, y, "o"))
+                    self.nodes[-1].append(Node(x, y, "wall"))
                     self.edges.append([x, y])
 
                 tile = not tile
@@ -57,19 +58,7 @@ class MapBoard:
                 tile2 = self.nodes[y][x - 1]
             if tile1.find_root() != tile2.find_root():
                 tile1.find_root().parent_node = tile2
-                self.nodes[y][x].tile_type = "x"
-
-    # Tiles:
-    # Player (will be a tile? - for now at least)
-    # Plain (walkable)
-    # Wall (unwalkable)
-    # Monsters (walkable)
-    # Shops (walkable)
-    # Treasure chests (walkable)
-    # Traps (that will be invisible, but not yet) (walkable)
-    # Questions (walkable)
-    # Start (walkable)
-    # Finish (walkable)
+                self.nodes[y][x].tile_type = "plain"
 
     def create_tiles(self) -> List[str]:
         tiles = [
@@ -87,20 +76,22 @@ class MapBoard:
     def add_tiles(self):  # There has to be a better way to do this
         for tile_type in self.create_tiles():
             tile = ""
-            while tile != "x":
+            while tile != "plain":
                 tile = self.nodes[y := random.randint(0, self.h)][
                     x := random.randint(0, self.w)
                 ].tile_type
             self.nodes[y][x].tile_type = tile_type
 
-    def display(self):
+    def display(self):  # There has to be a better way to do this
         for y, row in enumerate(self.nodes):
             for x, each in enumerate(row):
+                each.tile = tiles[each.tile_type]
                 match each.tile_type:
-                    case "x":
+                    case "plain":
                         self.nodes[y][x].tile_type = "◻️"
                     case "start":
                         self.nodes[y][x].tile_type = "🟨"
+                        self.start = (x, y)
                     case "finish":
                         self.nodes[y][x].tile_type = "🟩"
                     case "monster":

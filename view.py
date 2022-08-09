@@ -12,13 +12,20 @@ class View(qw.QMainWindow):
         self.centralWidget().setLayout(self.grid)
         self.centralWidget().setStyleSheet("QLabel {}")
 
-        stats = qw.QToolBar()
-        self.addToolBar(qc.Qt.BottomToolBarArea, stats)
-        # stats.
+        self.stats = qw.QToolBar()
+        self.addToolBar(qc.Qt.BottomToolBarArea, self.stats)
 
     def add_tile_to_grid(self, label: str, x: int, y: int):
         tile = qw.QLabel(label)
         self.grid.addWidget(tile, y, x)
+
+    def remove_player_from_grid(self, x: int, y: int):
+        tile = self.grid.itemAtPosition(y, x)
+        text = tile.widget().text()
+        self.grid.removeItem(tile)
+        player = self.grid.itemAtPosition(y, x)
+        player.widget().deleteLater()
+        self.add_tile_to_grid(text, x, y)
 
 
 def main():
