@@ -4,25 +4,38 @@ class Player:
         self.stamina = 100
 
     def move(self, direction: str, board: list):
-        # check if player can move to that space (wall) edge of map
-        # print()
-        # Move that direction
-        match direction:
-            case "N":
-                self.pos[1] -= 1
-                print(board[self.pos[1]][self.pos[0]].tile)
-                return [self.pos[0], self.pos[1] + 1]
-            case "E":
-                self.pos[0] += 1
-                print(board[self.pos[1]][self.pos[0]].tile)
-                return [self.pos[0] - 1, self.pos[1]]
-            case "S":
-                self.pos[1] += 1
-                print(board[self.pos[1]][self.pos[0]].tile)
-
-                return [self.pos[0], self.pos[1] - 1]
-            case "W":
-                self.pos[0] -= 1
-                print(board[self.pos[1]][self.pos[0]].tile)
-
-                return [self.pos[0] + 1, self.pos[1]]
+        tiles = board.nodes
+        # old_pos = [self.pos[0], self.pos[1]]
+        # Check if they are trying to move off the board
+        if direction == "N":
+            if self.pos[1] < 1:
+                return self.pos
+            future = tiles[self.pos[1] - 1][self.pos[0]]
+            if not future.tile.walkable:
+                return self.pos
+            self.pos[1] -= 1
+            return [self.pos[0], self.pos[1] + 1]
+        if direction == "S":
+            if self.pos[1] + 1 > board.h:
+                return self.pos
+            future = tiles[self.pos[1] + 1][self.pos[0]]
+            if not future.tile.walkable:
+                return self.pos
+            self.pos[1] += 1
+            return [self.pos[0], self.pos[1] - 1]
+        if direction == "W":
+            if self.pos[0] < 1:
+                return self.pos
+            future = tiles[self.pos[1]][self.pos[0] - 1]
+            if not future.tile.walkable:
+                return self.pos
+            self.pos[0] -= 1
+            return [self.pos[0] + 1, self.pos[1]]
+        else:
+            if self.pos[0] + 1 > board.w:
+                return self.pos
+            future = tiles[self.pos[1]][self.pos[0] + 1]
+            if not future.tile.walkable:
+                return self.pos
+            self.pos[0] += 1
+            return [self.pos[0] - 1, self.pos[1]]

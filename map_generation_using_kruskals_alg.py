@@ -1,6 +1,6 @@
 import random
 from typing import List
-from tiles import tiles
+from tiles import tiles, icons
 
 
 class Node:
@@ -86,23 +86,6 @@ class MapBoard:
         for y, row in enumerate(self.nodes):
             for x, each in enumerate(row):
                 each.tile = tiles[each.tile_type]
-                match each.tile_type:
-                    case "plain":
-                        self.nodes[y][x].tile_type = "◻️"
-                    case "start":
-                        self.nodes[y][x].tile_type = "🟨"
-                        self.start = (x, y)
-                    case "finish":
-                        self.nodes[y][x].tile_type = "🟩"
-                    case "monster":
-                        self.nodes[y][x].tile_type = "👹"
-                    case "shop":
-                        self.nodes[y][x].tile_type = "🛒"
-                    case "chest":
-                        self.nodes[y][x].tile_type = "🪙"
-                    case "trap":
-                        self.nodes[y][x].tile_type = "🪤"
-                    case "question":
-                        self.nodes[y][x].tile_type = "❓"
-                    case _:
-                        self.nodes[y][x].tile_type = "◼️"
+                if each.tile_type == "start":
+                    self.start = (x, y)
+                self.nodes[y][x].tile_type = icons[each.tile_type]

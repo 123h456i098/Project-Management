@@ -34,3 +34,15 @@ tiles = {
     "start": Tile(True, "", ""),
     "finish": Tile(True, "C", "Finish"),
 }
+
+icons = {
+    "plain": "◻️",
+    "wall": "◼️",
+    "start": "🟨",
+    "finish": "🟩",
+    "monster": "👹",
+    "shop": "🛒",
+    "chest": "🪙",
+    "trap": "🪤",
+    "question": "❓",
+}
