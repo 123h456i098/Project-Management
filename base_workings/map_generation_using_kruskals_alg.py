@@ -1,6 +1,6 @@
 import random
 from typing import List
-from tiles import tiles, icons
+from base_workings.tiles import tiles, icons
 
 
 class Node:
@@ -31,9 +31,9 @@ class MapBoard:
 
     def create_board(self, w, h):
         tile = True
-        for y in range(h + 1 if h % 2 == 0 else h):
+        for y in range(h):
             self.nodes.append([])
-            for x in range(w + 1 if w % 2 == 0 else w):
+            for x in range(w):
                 if tile:
                     self.nodes[-1].append(
                         Node(x, y, ("plain" if y % 2 == 0 else "wall"))
@@ -77,8 +77,8 @@ class MapBoard:
         for tile_type in self.create_tiles():
             tile = ""
             while tile != "plain":
-                tile = self.nodes[y := random.randint(0, self.h)][
-                    x := random.randint(0, self.w)
+                tile = self.nodes[y := random.randint(0, self.h - 1)][
+                    x := random.randint(0, self.w - 1)
                 ].tile_type
             self.nodes[y][x].tile_type = tile_type
 

@@ -31,7 +31,7 @@ class View(qw.QMainWindow):
 def main():
     app = qw.QApplication([])
     win = View()
-    control = Controller(win)
+    control = Controller(win, 20, 20)
     control.start()
     win.show()
     exit(app.exec())
