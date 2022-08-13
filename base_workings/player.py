@@ -1,10 +1,13 @@
 class Player:
     def __init__(self, x, y, board, w, h):
         self.pos = [x, y]
-        self.stamina = 100
         self.board = board
         self.board_w = w
         self.board_h = h
+        self.max_stamina = 100
+        self.stamina = self.max_stamina
+        self.exp = 0
+        self.level = 1
 
     def move(self, direction: str):
         # Only move if there is a clear tile where the player is going
@@ -27,3 +30,14 @@ class Player:
 
         self.pos = [new_x, new_y]
         return [new_x - change_x, new_y - change_y]
+
+    def gain_exp(self, exp: int):
+        self.exp += exp
+        while leftover := self.exp % (5 * self.level) >= 1:
+            self.exp = leftover
+            self.level_up()
+
+    def level_up(self):
+        self.level += 1
+        self.max_stamina += 10
+        self.stamina = self.max_stamina

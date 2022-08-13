@@ -22,6 +22,5 @@ class Controller:
 
     def move_player(self, direction: str):
         old_pos = self.player.move(direction)
-        print(old_pos, self.player.pos)
         self.view.remove_player_from_grid(*old_pos)
         self.view.add_tile_to_grid("P", *self.player.pos)
