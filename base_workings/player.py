@@ -32,10 +32,11 @@ class Player:
         return [new_x - change_x, new_y - change_y]
 
     def gain_exp(self, exp: int):
-        self.exp += exp
-        while leftover := self.exp % (5 * self.level) >= 1:
-            self.exp = leftover
-            self.level_up()
+        if exp >= 0:
+            self.exp += exp
+            while self.exp / (5 * self.level) >= 1:
+                self.exp -= 5 * self.level
+                self.level_up()
 
     def level_up(self):
         self.level += 1
