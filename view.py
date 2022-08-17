@@ -15,6 +15,21 @@ class View(qw.QMainWindow):
         self.stats = qw.QToolBar()
         self.addToolBar(qc.Qt.BottomToolBarArea, self.stats)
 
+        self.controllers_action_function = None
+
+    def set_controllers_action_function(self, function):
+        self.controllers_action_function = function
+
+    def keyPressEvent(self, event):
+        if event.key() == qc.Qt.Key_Up:
+            self.controllers_action_function("up")
+        if event.key() == qc.Qt.Key_Down:
+            self.controllers_action_function("down")
+        if event.key() == qc.Qt.Key_Left:
+            self.controllers_action_function("left")
+        if event.key() == qc.Qt.Key_Right:
+            self.controllers_action_function("right")
+
     def add_tile_to_grid(self, label: str, x: int, y: int):
         tile = qw.QLabel(label)
         self.grid.addWidget(tile, y, x)

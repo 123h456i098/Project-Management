@@ -9,6 +9,17 @@ class Controller:
         w += 1 if w % 2 == 0 else 0
         self.board = MapBoard(w, h)
         self.player = Player(*self.board.start, self.board.nodes, w, h)
+        self.view.set_controllers_action_function(self.action)
+
+    def action(self, action):
+        if action == "up":
+            self.move_player("N")
+        elif action == "down":
+            self.move_player("S")
+        elif action == "left":
+            self.move_player("W")
+        elif action == "right":
+            self.move_player("E")
 
     def start(self):
         for row in self.board.nodes:
