@@ -1,11 +1,12 @@
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
 from controller import Controller
+from fighting import FightView
 
 
 class View(qw.QMainWindow):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.setWindowTitle("Dungeon Explorer")
         self.setCentralWidget(qw.QWidget())
         self.grid = qw.QGridLayout()
@@ -13,12 +14,18 @@ class View(qw.QMainWindow):
         self.centralWidget().setStyleSheet("QLabel {}")
 
         self.stats = qw.QToolBar()
-        self.addToolBar(qc.Qt.BottomToolBarArea, self.stats)
+        self.addToolBar(qc.Qt.LeftToolBarArea, self.stats)
+        self.stats.setFixedWidth(70)
 
         self.controllers_action_function = None
 
     def set_controllers_action_function(self, function):
         self.controllers_action_function = function
+
+    def open_fight_view(self, level):
+        self.fight = FightView(level, self)
+        self.fight.show()
+        self.hide()
 
     def keyPressEvent(self, event):
         if event.key() == qc.Qt.Key_Up:
@@ -37,9 +44,9 @@ class View(qw.QMainWindow):
     def remove_player_from_grid(self, x: int, y: int):
         tile = self.grid.itemAtPosition(y, x)
         text = tile.widget().text()
-        self.grid.removeItem(tile)
+        tile.widget().setParent(None)
         player = self.grid.itemAtPosition(y, x)
-        player.widget().deleteLater()
+        player.widget().setParent(None)
         self.add_tile_to_grid(text, x, y)
 
 

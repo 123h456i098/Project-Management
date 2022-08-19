@@ -10,6 +10,14 @@ class Controller:
         self.board = MapBoard(w, h)
         self.player = Player(*self.board.start, self.board.nodes, w, h)
         self.view.set_controllers_action_function(self.action)
+        self.actions = {
+            "Fight": lambda: self.view.open_fight_view(self.player.level),
+            "Shop": lambda: print("shop"),
+            "Chest": lambda: print("chest"),
+            "Trap": lambda: print("trap"),
+            "Question": lambda: print("question"),
+            "Finish": lambda: print("finish"),
+        }
 
     def action(self, action):
         if action == "up":
@@ -26,12 +34,22 @@ class Controller:
             for each in row:
                 self.view.add_tile_to_grid(each.tile_type, each.x, each.y)
         self.view.add_tile_to_grid("P", *self.player.pos)
-        self.view.stats.addAction("N", lambda: self.move_player("N"))
-        self.view.stats.addAction("E", lambda: self.move_player("E"))
-        self.view.stats.addAction("S", lambda: self.move_player("S"))
-        self.view.stats.addAction("W", lambda: self.move_player("W"))
+        self.view.stats.addAction("⬆️", lambda: self.move_player("N"))
+        self.view.stats.addAction("⬇️", lambda: self.move_player("S"))
+        self.view.stats.addAction("⬅️", lambda: self.move_player("W"))
+        self.view.stats.addAction("➡️", lambda: self.move_player("E"))
+        self.view.stats.addSeparator()
 
     def move_player(self, direction: str):
         old_pos = self.player.move(direction)
         self.view.remove_player_from_grid(*old_pos)
         self.view.add_tile_to_grid("P", *self.player.pos)
+        current_tile = self.board.nodes[self.player.pos[1]][self.player.pos[0]]
+        last_action = self.view.stats.actions()[-1]
+        if last_action.text() != "":
+            self.view.stats.removeAction(last_action)
+
+        if current_tile.tile.action_type != "":
+            self.view.stats.addAction(
+                act := current_tile.tile.action, self.actions[act]
+            )

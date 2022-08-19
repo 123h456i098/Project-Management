@@ -9,6 +9,7 @@ class Node:
         self.y = y
         self.tile_type = tile_type
         self.parent_node = None
+        self.tile = tiles["plain"]
 
     def find_root(self):  # why -> Node: not defined?
         parent = self
