@@ -1,7 +1,6 @@
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
 from controller import Controller
-from fighting import FightView
 
 
 class View(qw.QMainWindow):
@@ -21,11 +20,6 @@ class View(qw.QMainWindow):
 
     def set_controllers_action_function(self, function):
         self.controllers_action_function = function
-
-    def open_fight_view(self, level):
-        self.fight = FightView(level, self)
-        self.fight.show()
-        self.hide()
 
     def keyPressEvent(self, event):
         if event.key() == qc.Qt.Key_Up:

@@ -1,5 +1,6 @@
 from base_workings.player import Player
 from base_workings.map_generation_using_kruskals_alg import MapBoard
+from fighting import FightView
 
 
 class Controller:
@@ -11,13 +12,19 @@ class Controller:
         self.player = Player(*self.board.start, self.board.nodes, w, h)
         self.view.set_controllers_action_function(self.action)
         self.actions = {
-            "Fight": lambda: self.view.open_fight_view(self.player.level),
+            "Fight": self.open_fight_view,
             "Shop": lambda: print("shop"),
             "Chest": lambda: print("chest"),
             "Trap": lambda: print("trap"),
             "Question": lambda: print("question"),
             "Finish": lambda: print("finish"),
         }
+
+    def open_fight_view(self):
+        print("test")
+        self.fight = FightView(self.player, self.view)
+        self.fight.show()
+        self.view.hide()
 
     def action(self, action):
         if action == "up":
