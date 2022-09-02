@@ -1,6 +1,7 @@
 from base_workings.player import Player
-from base_workings.map_generation_using_kruskals_alg import MapBoard
+from base_workings.map_generation_using_kruskals_alg import MapBoard, Node
 from fighting import FightView
+from base_workings.tiles import icons
 
 
 class Controller:
@@ -21,10 +22,18 @@ class Controller:
         }
 
     def open_fight_view(self):
-        print("test")
-        self.fight = FightView(self.player, self.view)
+        self.fight = FightView(self.player, self._done_fighting)
         self.fight.show()
         self.view.hide()
+
+    def _done_fighting(self, alive, exp_to_get):
+        if alive:
+            self.player.gain_exp(exp_to_get)
+            self.fight.close()
+            self.view.show()
+        else:
+            print("you died")
+            self.view.close()
 
     def action(self, action):
         if action == "up":
@@ -56,7 +65,17 @@ class Controller:
         if last_action.text() != "":
             self.view.stats.removeAction(last_action)
 
-        if current_tile.tile.action_type != "":
+        if current_tile.tile.action_type == "C":
             self.view.stats.addAction(
                 act := current_tile.tile.action, self.actions[act]
+            )
+        elif current_tile.tile.action_type == "F":
+            self.actions[current_tile.tile.action]()
+            self.view.remove_player_from_grid(*self.player.pos)
+            self.view.remove_tile_from_grid(*self.player.pos)
+            self.view.add_tile_to_grid(icons["plain"], *self.player.pos)
+            self.view.add_tile_to_grid("P", *self.player.pos)
+            self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
+                *self.player.pos,
+                icons["plain"],
             )

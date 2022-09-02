@@ -4,7 +4,7 @@ class Player:
         self.board = board
         self.board_w = w
         self.board_h = h
-        self.max_stamina = 100
+        self.max_stamina = 10
         self.stamina = self.max_stamina
         self.exp = 0
         self.level = 1

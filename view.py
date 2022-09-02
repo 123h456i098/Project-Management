@@ -35,12 +35,14 @@ class View(qw.QMainWindow):
         tile = qw.QLabel(label)
         self.grid.addWidget(tile, y, x)
 
-    def remove_player_from_grid(self, x: int, y: int):
+    def remove_tile_from_grid(self, x: int, y: int):
         tile = self.grid.itemAtPosition(y, x)
-        text = tile.widget().text()
         tile.widget().setParent(None)
-        player = self.grid.itemAtPosition(y, x)
-        player.widget().setParent(None)
+
+    def remove_player_from_grid(self, x: int, y: int):
+        text = self.grid.itemAtPosition(y, x).widget().text()
+        self.remove_tile_from_grid(x, y)
+        self.remove_tile_from_grid(x, y)
         self.add_tile_to_grid(text, x, y)
 
 
