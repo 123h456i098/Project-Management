@@ -2,6 +2,7 @@ from base_workings.player import Player
 from base_workings.map_generation_using_kruskals_alg import MapBoard, Node
 from fighting import FightView
 from base_workings.tiles import icons
+from question import Question
 
 
 class Controller:
@@ -17,7 +18,7 @@ class Controller:
             "Shop": lambda: print("shop"),
             "Chest": lambda: print("chest"),
             "Trap": self.trap,
-            "Question": lambda: print("question"),
+            "Question": self.open_question,
             "Finish": lambda: print("finish"),
         }
 
@@ -30,12 +31,26 @@ class Controller:
         self.fight.show()
         self.view.hide()
 
+    def open_question(self):
+        self.question = Question(self._done_question)
+        self.question.show()
+        self.view.hide()
+
+    def _done_question(self, correct):
+        if correct:
+            self._done_action(self.player.stamina, 1, self.question)
+        else:
+            self._done_action(self.player.stamina - 1, 0, self.question)
+
     def _done_fighting(self, stamina, exp_to_get):
+        self._done_action(stamina, exp_to_get, self.fight)
+
+    def _done_action(self, stamina, exp_to_get, view):
         if stamina:
             self.player.stamina = stamina
             self.player.gain_exp(exp_to_get)
             self._update_toolbar_labels()
-            self.fight.close()
+            view.close()
             self.view.show()
         else:
             print("you died")

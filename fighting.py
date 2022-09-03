@@ -1,14 +1,15 @@
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
-import json
 import random
+from ask_question import Ask_Question
 
 
 class FightView(qw.QMainWindow):
     def __init__(self, player, end_function):
         super().__init__()
-        with open("questions/england_questions.json", "r") as read_file:
-            self.questions = json.load(read_file)
+        self.question_machine = Ask_Question(
+            self.back_to_main_screen, self.get_question_right, self.take_damage
+        )
         self.end_function = end_function
         self.health = player.level * 2
         self.exp_to_get = player.level * 2
@@ -82,52 +83,13 @@ color: white;
         )
 
     def ask_question(self):
-        self.vbox2 = qw.QVBoxLayout()
-        self.question_view = qw.QWidget()
-        self.question_view.setLayout(self.vbox2)
-        self.stacked.addWidget(self.question_view)
+        self.question_machine.ask_question()
+        self.stacked.addWidget(self.question_machine.question_view)
         self.stacked.setCurrentIndex(1)
-        question = random.choice(self.questions)
-        text = question["question"]
-        correct = question["correct"]
-        wrongs = [question["wrong1"], question["wrong2"], question["wrong3"]]
-        answers = wrongs + [correct]
-        self.question = qw.QLabel(text)
-        self.vbox2.addWidget(self.question)
-        self.vbox2.addStretch()
-        random.shuffle(answers)
-        self.buttons = []
-        for i, each in enumerate(answers):
-            button = qw.QPushButton(each)
-            self.vbox2.addWidget(button)
-            self.buttons.append(button)
-            button.clicked.connect(
-                lambda _=None, i=i, each=each: self.answer_question(
-                    i, each, correct
-                )
-            )
-
-    def answer_question(self, index, answer, correct):
-        style = f"""
-QPushButton {{
-background-color: {"green" if answer == correct else "red"};
-color: black
-}}"""
-        for each in self.buttons:
-            each.setEnabled(False)
-        self.buttons[index].setStyleSheet(style)
-
-        if answer == correct:
-            self.get_question_right()
-        else:
-            self.take_damage()
-        submit_button = qw.QPushButton("Cool, got it")
-        self.vbox2.addWidget(submit_button)
-        submit_button.clicked.connect(self.back_to_main_screen)
 
     def back_to_main_screen(self):
         self.stacked.setCurrentIndex(0)
-        self.stacked.removeWidget(self.question_view)
+        self.stacked.removeWidget(self.question_machine.question_view)
 
     def get_question_right(self):
         self.num_dice += 1
