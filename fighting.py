@@ -75,7 +75,7 @@ color: white;
     def do_damage(self):
         self.health -= 1
         if self.health <= 0:
-            self.end_function(True, self.exp_to_get)
+            self.end_function(self.p_health, self.exp_to_get)
         self.monster_health_bar.setText(
             f"Monster: {self.health}/{self.exp_to_get}"
             "    (Roll a 5 or higher to deal damage)"
@@ -139,7 +139,7 @@ color: black
     def take_damage(self):
         self.p_health -= 1
         if self.p_health <= 0:
-            self.end_function(False, 0)
+            self.end_function(self.p_health, 0)
         self.p_health_bar.setText(
             f"{self.p_health}/{self.p_max_health} - {self.num_dice} x 🎲"
         )

@@ -26,9 +26,12 @@ class Controller:
         self.fight.show()
         self.view.hide()
 
-    def _done_fighting(self, alive, exp_to_get):
-        if alive:
+    def _done_fighting(self, stamina, exp_to_get):
+        if stamina:
+            self.player.stamina = stamina
             self.player.gain_exp(exp_to_get)
+            self.remove_labels_from_toolbar()
+            self.add_labels_to_toolbar()
             self.fight.close()
             self.view.show()
         else:
@@ -49,17 +52,31 @@ class Controller:
         for row in self.board.nodes:
             for each in row:
                 self.view.add_tile_to_grid(each.tile_type, each.x, each.y)
-        self.view.add_tile_to_grid("P", *self.player.pos)
+        self.view.add_tile_to_grid("@", *self.player.pos)
         self.view.stats.addAction("⬆️", lambda: self.move_player("N"))
         self.view.stats.addAction("⬇️", lambda: self.move_player("S"))
         self.view.stats.addAction("⬅️", lambda: self.move_player("W"))
         self.view.stats.addAction("➡️", lambda: self.move_player("E"))
         self.view.stats.addSeparator()
+        self.add_labels_to_toolbar()
+
+    def add_labels_to_toolbar(self):
+        self.view.add_label_to_toolbar(
+            f"Stamina:\n{self.player.stamina}/{self.player.max_stamina}\n"
+        )
+        self.view.add_label_to_toolbar(
+            f"EXP:\n{self.player.exp}/{5*self.player.level}\n"
+        )
+        self.view.add_label_to_toolbar(f"Level: {self.player.level}\n")
+
+    def remove_labels_from_toolbar(self):
+        for label in self.view.toolbar_labels:
+            self.view.remove_label_from_toolbar(label)
 
     def move_player(self, direction: str):
         old_pos = self.player.move(direction)
         self.view.remove_player_from_grid(*old_pos)
-        self.view.add_tile_to_grid("P", *self.player.pos)
+        self.view.add_tile_to_grid("@", *self.player.pos)
         current_tile = self.board.nodes[self.player.pos[1]][self.player.pos[0]]
         last_action = self.view.stats.actions()[-1]
         if last_action.text() != "":
@@ -74,7 +91,7 @@ class Controller:
             self.view.remove_player_from_grid(*self.player.pos)
             self.view.remove_tile_from_grid(*self.player.pos)
             self.view.add_tile_to_grid(icons["plain"], *self.player.pos)
-            self.view.add_tile_to_grid("P", *self.player.pos)
+            self.view.add_tile_to_grid("@", *self.player.pos)
             self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
                 *self.player.pos,
                 icons["plain"],
