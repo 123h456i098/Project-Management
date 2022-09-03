@@ -16,10 +16,14 @@ class Controller:
             "Fight": self.open_fight_view,
             "Shop": lambda: print("shop"),
             "Chest": lambda: print("chest"),
-            "Trap": lambda: print("trap"),
+            "Trap": self.trap,
             "Question": lambda: print("question"),
             "Finish": lambda: print("finish"),
         }
+
+    def trap(self):
+        self.player.stamina -= 1
+        self._update_toolbar_labels()
 
     def open_fight_view(self):
         self.fight = FightView(self.player, self._done_fighting)
@@ -30,13 +34,16 @@ class Controller:
         if stamina:
             self.player.stamina = stamina
             self.player.gain_exp(exp_to_get)
-            self.remove_labels_from_toolbar()
-            self.add_labels_to_toolbar()
+            self._update_toolbar_labels()
             self.fight.close()
             self.view.show()
         else:
             print("you died")
             self.view.close()
+
+    def _update_toolbar_labels(self):
+        self.remove_labels_from_toolbar()
+        self.add_labels_to_toolbar()
 
     def action(self, action):
         if action == "up":
@@ -70,8 +77,11 @@ class Controller:
         self.view.add_label_to_toolbar(f"Level: {self.player.level}\n")
 
     def remove_labels_from_toolbar(self):
+        print(self.view.toolbar_labels)
         for label in self.view.toolbar_labels:
             self.view.remove_label_from_toolbar(label)
+            print("removed", label.text())
+        self.view.toolbar_labels = []
 
     def move_player(self, direction: str):
         old_pos = self.player.move(direction)
@@ -90,7 +100,12 @@ class Controller:
             self.actions[current_tile.tile.action]()
             self.view.remove_player_from_grid(*self.player.pos)
             self.view.remove_tile_from_grid(*self.player.pos)
-            self.view.add_tile_to_grid(icons["plain"], *self.player.pos)
+            self.view.add_tile_to_grid(
+                icons[
+                    "plain" if current_tile.tile.action != "Trap" else "trap"
+                ],
+                *self.player.pos,
+            )
             self.view.add_tile_to_grid("@", *self.player.pos)
             self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
                 *self.player.pos,

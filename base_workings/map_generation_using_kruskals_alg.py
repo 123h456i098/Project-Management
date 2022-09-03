@@ -68,7 +68,7 @@ class MapBoard:
             *["monster" for _ in range(random.randint(6, 9))],
             *["shop" for _ in range(random.randint(1, 2))],
             *["chest" for _ in range(random.randint(3, 5))],
-            *["trap" for _ in range(random.randint(0, 3))],
+            *["trap" for _ in range(20)],
             *["question" for _ in range(random.randint(2, 3))],
         ]
         random.shuffle(tiles)
@@ -78,8 +78,8 @@ class MapBoard:
         for tile_type in self.create_tiles():
             tile = ""
             while tile != "plain":
-                tile = self.nodes[y := random.randint(0, self.h - 1)][
-                    x := random.randint(0, self.w - 1)
+                tile = self.nodes[(y := random.randint(0, self.h - 1))][
+                    (x := random.randint(0, self.w - 1))
                 ].tile_type
             self.nodes[y][x].tile_type = tile_type
 
@@ -89,4 +89,6 @@ class MapBoard:
                 each.tile = tiles[each.tile_type]
                 if each.tile_type == "start":
                     self.start = (x, y)
-                self.nodes[y][x].tile_type = icons[each.tile_type]
+                self.nodes[y][x].tile_type = icons[
+                    each.tile_type if each.tile_type != "trap" else "plain"
+                ]

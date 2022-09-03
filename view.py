@@ -29,7 +29,6 @@ class View(qw.QMainWindow):
         self.stats.addWidget(label)
 
     def remove_label_from_toolbar(self, label):
-        self.toolbar_labels.remove(label)
         label.deleteLater()
 
     def keyPressEvent(self, event):
