@@ -42,7 +42,8 @@ class Controller:
         else:
             self._done_action(self.player.stamina - 1, 0, self.question)
 
-    def _done_fighting(self, stamina, exp_to_get):
+    def _done_fighting(self, stamina, exp_to_get, coin):
+        self.player.coins += coin
         self._done_action(stamina, exp_to_get, self.fight)
 
     def _done_action(self, stamina, exp_to_get, view):
@@ -90,12 +91,11 @@ class Controller:
             f"EXP:\n{self.player.exp}/{5*self.player.level}\n"
         )
         self.view.add_label_to_toolbar(f"Level: {self.player.level}\n")
+        self.view.add_label_to_toolbar(f"Coins: ${self.player.coins}\n")
 
     def remove_labels_from_toolbar(self):
-        print(self.view.toolbar_labels)
         for label in self.view.toolbar_labels:
             self.view.remove_label_from_toolbar(label)
-            print("removed", label.text())
         self.view.toolbar_labels = []
 
     def move_player(self, direction: str):

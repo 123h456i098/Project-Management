@@ -76,11 +76,48 @@ color: white;
     def do_damage(self):
         self.health -= 1
         if self.health <= 0:
-            self.end_function(self.p_health, self.exp_to_get)
+            self.reward_screen()
         self.monster_health_bar.setText(
             f"Monster: {self.health}/{self.exp_to_get}"
             "    (Roll a 5 or higher to deal damage)"
         )
+
+    def reward_screen(self):
+        reward = qw.QWidget()
+        self.stacked.addWidget(reward)
+        self.grid = qw.QGridLayout()
+        reward.setLayout(self.grid)
+        question, answer = self.question_machine.get_answer()
+        coins = self.exp_to_get // 2
+        instructions = qw.QLabel("Congradulations, choose your reward")
+        self.question_button = qw.QPushButton("Answer for:\n" + question)
+        self.question_button.clicked.connect(lambda: self.get_reward(answer))
+        self.coin_button = qw.QPushButton("Or some coins")
+        self.coin_button.clicked.connect(lambda: self.get_reward(str(coins)))
+        self.grid.addWidget(instructions, 0, 0, 1, 2, qc.Qt.AlignCenter)
+        self.grid.setRowStretch(1, 1)
+        self.grid.addWidget(self.question_button, 2, 0, qc.Qt.AlignCenter)
+        self.grid.addWidget(self.coin_button, 2, 1, qc.Qt.AlignCenter)
+        self.grid.setRowStretch(3, 1)
+        self.stacked.setCurrentIndex(1)
+
+    def get_reward(self, reward):
+        self.question_button.setEnabled(False)
+        self.coin_button.setEnabled(False)
+        coin = int(reward if reward.isdigit() else "0")
+        self.grid.addWidget(
+            qw.QLabel(f"{'$' if coin else ''}{reward}"),
+            4,
+            0,
+            1,
+            2,
+            qc.Qt.AlignCenter,
+        )
+        submit_button = qw.QPushButton("Submit")
+        submit_button.clicked.connect(
+            lambda: self.end_function(self.p_health, self.exp_to_get, coin)
+        )
+        self.grid.addWidget(submit_button, 5, 0, 1, 2, qc.Qt.AlignCenter)
 
     def ask_question(self):
         self.question_machine.ask_question()

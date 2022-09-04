@@ -8,6 +8,7 @@ class Player:
         self.stamina = self.max_stamina
         self.exp = 0
         self.level = 1
+        self.coins = 0
 
     def move(self, direction: str):
         # Only move if there is a clear tile where the player is going

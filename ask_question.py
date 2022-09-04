@@ -11,6 +11,12 @@ class Ask_Question:
         with open("questions/england_questions.json", "r") as read_file:
             self.questions = json.load(read_file)
 
+    def get_answer(self):
+        question = random.choice(self.questions)
+        text = question["question"]
+        correct = question["correct"]
+        return text, correct
+
     def ask_question(self):
         self.vbox2 = qw.QVBoxLayout()
         self.question_view = qw.QWidget()
