@@ -1,4 +1,4 @@
-from ask_question import Ask_Question
+from main_files.ask_question import Ask_Question
 from PySide6 import QtWidgets as qw
 
 

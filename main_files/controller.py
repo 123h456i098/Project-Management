@@ -1,8 +1,8 @@
 from base_workings.player import Player
 from base_workings.map_generation_using_kruskals_alg import MapBoard, Node
-from fighting import FightView
+from main_files.fighting import FightView
 from base_workings.tiles import icons
-from question import Question
+from main_files.question import Question
 
 
 class Controller:

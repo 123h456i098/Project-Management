@@ -1,7 +1,7 @@
 from difflib import Match
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
-from controller import Controller
+from main_files.controller import Controller
 
 
 class View(qw.QMainWindow):

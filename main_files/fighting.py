@@ -1,7 +1,7 @@
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
 import random
-from ask_question import Ask_Question
+from main_files.ask_question import Ask_Question
 
 
 class FightView(qw.QMainWindow):
