@@ -29,7 +29,7 @@ tiles = {
     "monster": Tile(True, "F", "Fight"),
     "shop": Tile(True, "C", "Shop"),
     "chest": Tile(True, "C", "Chest"),
-    "trap": Tile(True, "F", "Trap"),  # TODO be made invisible
+    "trap": Tile(True, "F", "Trap"),
     "question": Tile(True, "F", "Question"),
     "start": Tile(True, "", ""),
     "finish": Tile(True, "C", "Finish"),
@@ -43,6 +43,7 @@ icons = {
     "monster": "👹",
     "shop": "🛒",
     "chest": "🪙",
+    "opened": "✔️",
     "trap": "🪤",
     "question": "❓",
 }

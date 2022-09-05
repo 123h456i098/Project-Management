@@ -4,7 +4,7 @@ import random
 
 
 class Ask_Question:
-    def __init__(self, back_to_main_screen, correct, wrong):
+    def __init__(self, back_to_main_screen=None, correct=None, wrong=None):
         self.correct = correct
         self.wrong = wrong
         self.back_to_main_screen = back_to_main_screen

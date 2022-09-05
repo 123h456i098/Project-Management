@@ -1,7 +1,6 @@
-from difflib import Match
 from PySide6 import QtWidgets as qw, QtCore as qc
 from sys import exit
-from main_files.controller import Controller
+from controller import Controller
 
 
 class View(qw.QMainWindow):
@@ -17,6 +16,13 @@ class View(qw.QMainWindow):
         self.addToolBar(qc.Qt.LeftToolBarArea, self.stats)
         self.stats.setFixedWidth(70)
         self.toolbar_labels = []
+        self.stats.setStyleSheet(
+            """
+QToolButton {
+border: 2px outset red;
+margin: 2px;
+}"""
+        )
 
         self.controllers_action_function = None
 

@@ -68,7 +68,7 @@ class MapBoard:
             *["monster" for _ in range(random.randint(6, 9))],
             *["shop" for _ in range(random.randint(1, 2))],
             *["chest" for _ in range(random.randint(3, 5))],
-            *["trap" for _ in range(random.randit(5, 10))],
+            *["trap" for _ in range(random.randint(5, 10))],
             *["question" for _ in range(random.randint(2, 3))],
         ]
         random.shuffle(tiles)

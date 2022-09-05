@@ -1,8 +1,9 @@
 from base_workings.player import Player
 from base_workings.map_generation_using_kruskals_alg import MapBoard, Node
-from main_files.fighting import FightView
 from base_workings.tiles import icons
+from main_files.fighting import FightView
 from main_files.question import Question
+from main_files.chest import Chest
 
 
 class Controller:
@@ -14,11 +15,11 @@ class Controller:
         self.player = Player(*self.board.start, self.board.nodes, w, h)
         self.view.set_controllers_action_function(self.action)
         self.actions = {
-            "Fight": self.open_fight_view,
-            "Shop": lambda: print("shop"),
-            "Chest": lambda: print("chest"),
             "Trap": self.trap,
+            "Fight": self.open_fight_view,
             "Question": self.open_question,
+            "Chest": self.open_chest,
+            "Shop": lambda: print("shop"),
             "Finish": lambda: print("finish"),
         }
 
@@ -26,6 +27,7 @@ class Controller:
         self.player.stamina -= 1
         self._update_toolbar_labels()
 
+    # region - Open views
     def open_fight_view(self):
         self.fight = FightView(self.player, self._done_fighting)
         self.fight.show()
@@ -36,26 +38,52 @@ class Controller:
         self.question.show()
         self.view.hide()
 
-    def _done_question(self, correct):
-        if correct:
-            self._done_action(self.player.stamina, 1, self.question)
-        else:
-            self._done_action(self.player.stamina - 1, 0, self.question)
+    def open_chest(self):
+        self.chest = Chest(self.done_chest)
+        self.chest.show()
+        self.view.hide()
 
+    # endregion
+
+    # region - Close views
     def _done_fighting(self, stamina, exp_to_get, coin):
         self.player.coins += coin
-        self._done_action(stamina, exp_to_get, self.fight)
+        self.player.stamina = stamina
+        self.player.gain_exp(exp_to_get)
+        self._done_action(self.fight)
 
-    def _done_action(self, stamina, exp_to_get, view):
-        if stamina:
-            self.player.stamina = stamina
-            self.player.gain_exp(exp_to_get)
+    def _done_question(self, correct):
+        if correct:
+            self.player.gain_exp(1)
+        else:
+            self.player.stamina -= 1
+        self._done_action(self.question)
+
+    def done_chest(self, coins, health):
+        self.player.coins += coins
+        self.player.stamina += health
+        self.view.stats.removeAction(self.view.stats.actions()[-1])
+        # Replace with opened chest icon
+        self.view.remove_player_from_grid(*self.player.pos)
+        self.view.remove_tile_from_grid(*self.player.pos)
+        self.view.add_tile_to_grid(icons["opened"], *self.player.pos)
+        self.view.add_tile_to_grid("@", *self.player.pos)
+        self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
+            *self.player.pos,
+            icons["plain"],
+        )
+        self._done_action(self.chest)
+
+    def _done_action(self, view):
+        if self.player.stamina > 0:
             self._update_toolbar_labels()
             view.close()
             self.view.show()
         else:
             print("you died")
             self.view.close()
+
+    # endregion
 
     def _update_toolbar_labels(self):
         self.remove_labels_from_toolbar()
