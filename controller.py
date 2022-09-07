@@ -4,6 +4,7 @@ from base_workings.tiles import icons
 from main_files.fighting import FightView
 from main_files.question import Question
 from main_files.chest import Chest
+from main_files.shop import Shop
 
 
 class Controller:
@@ -19,7 +20,7 @@ class Controller:
             "Fight": self.open_fight_view,
             "Question": self.open_question,
             "Chest": self.open_chest,
-            "Shop": lambda: print("shop"),
+            "Shop": self.open_shop,
             "Finish": lambda: print("finish"),
         }
 
@@ -41,6 +42,14 @@ class Controller:
     def open_chest(self):
         self.chest = Chest(self.done_chest)
         self.chest.show()
+        self.view.hide()
+
+    def open_shop(self):
+        s = self.board.nodes[self.player.pos[1]][self.player.pos[0]].view
+        if s is None:
+            s = Shop(self.done_shop, self.player.coins)
+            self.board.nodes[self.player.pos[1]][self.player.pos[0]].view = s
+        s.show()
         self.view.hide()
 
     # endregion
@@ -75,13 +84,23 @@ class Controller:
         self._done_action(self.chest)
 
     def _done_action(self, view):
+        view.close()
         if self.player.stamina > 0:
             self._update_toolbar_labels()
-            view.close()
             self.view.show()
         else:
             print("you died")
             self.view.close()
+
+    def done_shop(self, coins, exp, health):
+        self.player.coins = coins
+        self.player.stamina += health
+        self.player.gain_exp(exp)
+        action = self.view.stats.actions()[-1]
+        self.view.stats.removeAction(action)
+        self._update_toolbar_labels()
+        self.board.nodes[self.player.pos[1]][self.player.pos[0]].view.hide()
+        self.view.show()
 
     # endregion
 
@@ -139,6 +158,7 @@ class Controller:
             self.view.stats.addAction(
                 act := current_tile.tile.action, self.actions[act]
             )
+            self.view.set_controllers_enter_function(self.actions[act])
         elif current_tile.tile.action_type == "F":
             self.actions[current_tile.tile.action]()
             self.view.remove_player_from_grid(*self.player.pos)

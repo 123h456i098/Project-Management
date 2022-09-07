@@ -10,6 +10,7 @@ class Node:
         self.tile_type = tile_type
         self.parent_node = None
         self.tile = tiles["plain"]
+        self.view = None
 
     def find_root(self):  # why -> Node: not defined?
         parent = self
@@ -66,7 +67,7 @@ class MapBoard:
             "start",
             "finish",
             *["monster" for _ in range(random.randint(6, 9))],
-            *["shop" for _ in range(random.randint(1, 2))],
+            *["shop" for _ in range(random.randint(10, 20))],
             *["chest" for _ in range(random.randint(3, 5))],
             *["trap" for _ in range(random.randint(5, 10))],
             *["question" for _ in range(random.randint(2, 3))],

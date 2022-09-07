@@ -25,9 +25,13 @@ margin: 2px;
         )
 
         self.controllers_action_function = None
+        self.controllers_enter_function = None
 
     def set_controllers_action_function(self, function):
         self.controllers_action_function = function
+
+    def set_controllers_enter_function(self, function):
+        self.controllers_enter_function = function
 
     def add_label_to_toolbar(self, text):
         label = qw.QLabel(text)
@@ -47,6 +51,8 @@ margin: 2px;
                 self.controllers_action_function("left")
             case qc.Qt.Key_Right | qc.Qt.Key_D:
                 self.controllers_action_function("right")
+            case qc.Qt.Key_Return:
+                self.controllers_enter_function()
 
     def add_tile_to_grid(self, label: str, x: int, y: int):
         tile = qw.QLabel(label)

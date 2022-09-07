@@ -2,8 +2,6 @@ from main_files.ask_question import Ask_Question
 from PySide6 import QtWidgets as qw
 import random
 
-# needs to change to an open chest with no function once reward is picked
-
 
 class Chest(qw.QMainWindow):
     def __init__(self, end_function):
