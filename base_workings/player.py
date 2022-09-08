@@ -10,6 +10,11 @@ class Player:
         self.level = 1
         self.coins = 10
 
+    def gain_health(self, health):
+        self.stamina += health
+        if self.stamina > self.max_stamina:
+            self.stamina = self.max_stamina
+
     def move(self, direction: str):
         # Only move if there is a clear tile where the player is going
 

@@ -18,12 +18,13 @@ class Shop(qw.QMainWindow):
         self.end_function = end_function
         self.health_to_get = 0
         self.exp_to_get = 0
+        self.stock = []
         self.setWindowTitle("Shop")
         self.setFixedSize(400, 300)
         self.setCentralWidget(qw.QWidget())
         self.vbox = qw.QVBoxLayout()
         self.centralWidget().setLayout(self.vbox)
-        self.exit_button = qw.QPushButton("Back")
+        self.exit_button = qw.QPushButton(f"Back   (you have ${self.p_coins})")
         self.exit_button.clicked.connect(
             lambda: self.end_function(
                 self.p_coins, self.exp_to_get, self.health_to_get
@@ -40,6 +41,7 @@ class Shop(qw.QMainWindow):
             randint(1, 3),
             randint(3, 5),
         ]
+        self.buttons = []
         for index, tag in enumerate(self.tags):
             widget = qw.QWidget()
             widget.setObjectName("item-area")
@@ -55,9 +57,11 @@ border: 2px solid black;
             title = qw.QLabel(f"{tag}\n")
             vbox.addWidget(title)
             button = qw.QPushButton(f"${self.prices[index]}")
+            self.buttons.append(button)
             vbox.addWidget(button)
             button.clicked.connect(lambda sac=None, i=index: self.buy(i))
             self.hbox.addWidget(widget)
+            self.stock.append(widget)
 
             # Some labels and a button that buys the item, clears it from shop
             # and displays in a message box to user
@@ -65,20 +69,27 @@ border: 2px solid black;
     def buy(self, index):
         price = self.prices[index]
         if self.p_coins >= price:
-            self.p_coins -= price
+            self.p_coins -= self.prices.pop(index)
+            self.exit_button.setText(f"Back   (you have ${self.p_coins})")
+            tag = self.tags.pop(index)
             qw.QMessageBox(
                 qw.QMessageBox.Icon.Information,
-                f"Bought {self.tags[index]}",
+                f"Bought {tag}",
                 f"{self.products[index]}",
             ).exec()
-            if self.tags[index] == "Some EXP":
+            if tag == "Some EXP":
                 self.exp_to_get = self.products[index]
-            elif self.tags[index] == "Some health":
+            elif tag == "Some health":
                 self.health_to_get = self.products[index]
-            # self.exit_button.clicked.connect(
-            #     lambda: self.end_function(
-            #         self.p_coins, self.exp_to_get, self.health_to_get
-            #     )
-            # )
+            del self.products[index]
+
+            del self.buttons[index]
+
+            widget = self.stock.pop(index)
+            widget.setParent(None)
         else:
             print("not enough money")
+
+        for i in range(len(self.buttons)):
+            self.buttons[i].clicked.disconnect()
+            self.buttons[i].clicked.connect(lambda sac=None, i=i: self.buy(i))

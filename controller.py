@@ -15,6 +15,7 @@ class Controller:
         self.board = MapBoard(w, h)
         self.player = Player(*self.board.start, self.board.nodes, w, h)
         self.view.set_controllers_action_function(self.action)
+        self.view.set_controllers_enter_function(lambda: None)
         self.actions = {
             "Trap": self.trap,
             "Fight": self.open_fight_view,
@@ -69,8 +70,9 @@ class Controller:
         self._done_action(self.question)
 
     def done_chest(self, coins, health):
+        self.view.set_controllers_enter_function(lambda: None)
         self.player.coins += coins
-        self.player.stamina += health
+        self.player.gain_health(health)
         self.view.stats.removeAction(self.view.stats.actions()[-1])
         # Replace with opened chest icon
         self.view.remove_player_from_grid(*self.player.pos)
@@ -93,8 +95,9 @@ class Controller:
             self.view.close()
 
     def done_shop(self, coins, exp, health):
+        self.view.set_controllers_enter_function(lambda: None)
         self.player.coins = coins
-        self.player.stamina += health
+        self.player.gain_health(health)
         self.player.gain_exp(exp)
         action = self.view.stats.actions()[-1]
         self.view.stats.removeAction(action)
