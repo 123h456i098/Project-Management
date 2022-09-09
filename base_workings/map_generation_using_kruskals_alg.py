@@ -67,7 +67,7 @@ class MapBoard:
             "start",
             "finish",
             *["monster" for _ in range(random.randint(6, 9))],
-            *["shop" for _ in range(random.randint(10, 20))],
+            *["shop" for _ in range(random.randint(3, 5))],
             *["chest" for _ in range(random.randint(3, 5))],
             *["trap" for _ in range(random.randint(5, 10))],
             *["question" for _ in range(random.randint(2, 3))],
