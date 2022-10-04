@@ -5,6 +5,7 @@ from main_files.fighting import FightView
 from main_files.question import Question
 from main_files.chest import Chest
 from main_files.shop import Shop
+from matplotlib.pyplot import imread
 
 
 class Controller:
@@ -124,8 +125,12 @@ class Controller:
     def start(self):
         for row in self.board.nodes:
             for each in row:
-                self.view.add_tile_to_grid(each.tile_type, each.x, each.y)
-        self.view.add_tile_to_grid("@", *self.player.pos)
+                self.view.add_tile_to_grid(
+                    imread(f"Images/{each.tile_type}.png"), each.x, each.y
+                )
+        self.view.add_tile_to_grid(
+            imread("Images/player.png"), *self.player.pos
+        )
         self.view.stats.addAction("⬆️", lambda: self.move_player("N"))
         self.view.stats.addAction("⬇️", lambda: self.move_player("S"))
         self.view.stats.addAction("⬅️", lambda: self.move_player("W"))

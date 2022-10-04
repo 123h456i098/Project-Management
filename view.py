@@ -1,4 +1,4 @@
-from PySide6 import QtWidgets as qw, QtCore as qc
+from PySide6 import QtWidgets as qw, QtCore as qc, QtGui as qg
 from sys import exit
 from controller import Controller
 
@@ -54,8 +54,20 @@ margin: 2px;
             case qc.Qt.Key_Return:
                 self.controllers_enter_function()
 
-    def add_tile_to_grid(self, label: str, x: int, y: int):
-        tile = qw.QLabel(label)
+    def add_tile_to_grid(self, image, x: int, y: int):
+        height, width, channels = image.shape
+        bytesPerLine = channels * width
+        qImg = qg.QImage(
+            image.data, width, height, bytesPerLine, qg.QImage.Format_RGB888
+        )
+        pixmap01 = qg.QPixmap.fromImage(qImg)
+        pixmap_image = qg.QPixmap(pixmap01)
+        tile = qw.QLabel()
+        tile.setPixmap(pixmap_image)
+        tile.setAlignment(qc.Qt.AlignCenter)
+        tile.setScaledContents(True)
+        tile.setMinimumSize(1, 1)
+
         self.grid.addWidget(tile, y, x)
 
     def remove_tile_from_grid(self, x: int, y: int):

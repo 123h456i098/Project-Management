@@ -36,14 +36,14 @@ tiles = {
 }
 
 icons = {
-    "plain": "◻️",
-    "wall": "◼️",
-    "start": "🟨",
-    "finish": "🟩",
-    "monster": "👹",
-    "shop": "🛒",
-    "chest": "🪙",
-    "opened": "✔️",
-    "trap": "🪤",
-    "question": "❓",
+    "plain": "plain",
+    "wall": "wall",
+    "start": "start_pad",
+    "finish": "finish_pad",
+    "monster": "monster_images/monster1",
+    "shop": "shop",
+    "chest": "closed_chest",
+    "opened": "open_chest",
+    "trap": "trap",
+    "question": "question_mark",
 }
