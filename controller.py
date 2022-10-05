@@ -5,7 +5,6 @@ from main_files.fighting import FightView
 from main_files.question import Question
 from main_files.chest import Chest
 from main_files.shop import Shop
-from matplotlib.pyplot import imread
 
 
 class Controller:
@@ -126,11 +125,9 @@ class Controller:
         for row in self.board.nodes:
             for each in row:
                 self.view.add_tile_to_grid(
-                    imread(f"Images/{each.tile_type}.png"), each.x, each.y
+                    f"Images/{each.tile_type}.png", each.x, each.y
                 )
-        self.view.add_tile_to_grid(
-            imread("Images/player.png"), *self.player.pos
-        )
+        self.view.add_tile_to_grid("Images/player.png", *self.player.pos)
         self.view.stats.addAction("⬆️", lambda: self.move_player("N"))
         self.view.stats.addAction("⬇️", lambda: self.move_player("S"))
         self.view.stats.addAction("⬅️", lambda: self.move_player("W"))
@@ -156,7 +153,7 @@ class Controller:
     def move_player(self, direction: str):
         old_pos = self.player.move(direction)
         self.view.remove_player_from_grid(*old_pos)
-        self.view.add_tile_to_grid("@", *self.player.pos)
+        self.view.add_tile_to_grid("Images/player.png", *self.player.pos)
         current_tile = self.board.nodes[self.player.pos[1]][self.player.pos[0]]
         last_action = self.view.stats.actions()[-1]
         if last_action.text() != "":
@@ -172,12 +169,10 @@ class Controller:
             self.view.remove_player_from_grid(*self.player.pos)
             self.view.remove_tile_from_grid(*self.player.pos)
             self.view.add_tile_to_grid(
-                icons[
-                    "plain" if current_tile.tile.action != "Trap" else "trap"
-                ],
+                f"Images/{icons['plain' if current_tile.tile.action != 'Trap' else 'trap']}.png",
                 *self.player.pos,
             )
-            self.view.add_tile_to_grid("@", *self.player.pos)
+            self.view.add_tile_to_grid("Images/player.png", *self.player.pos)
             self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
                 *self.player.pos,
                 icons["plain"],

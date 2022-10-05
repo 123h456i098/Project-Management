@@ -1,6 +1,8 @@
 from PySide6 import QtWidgets as qw, QtCore as qc, QtGui as qg
 from sys import exit
 from controller import Controller
+from PIL import Image
+from PIL.ImageQt import ImageQt
 
 
 class View(qw.QMainWindow):
@@ -54,20 +56,19 @@ margin: 2px;
             case qc.Qt.Key_Return:
                 self.controllers_enter_function()
 
-    def add_tile_to_grid(self, image, x: int, y: int):
-        height, width, channels = image.shape
-        bytesPerLine = channels * width
-        qImg = qg.QImage(
-            image.data, width, height, bytesPerLine, qg.QImage.Format_RGB888
-        )
+    def add_tile_to_grid(self, filename, x: int, y: int):
+        image = Image.open(filename)
+        qImg = ImageQt(image)
         pixmap01 = qg.QPixmap.fromImage(qImg)
-        pixmap_image = qg.QPixmap(pixmap01)
+        pixmap_image = qg.QPixmap(pixmap01).scaled(
+            27, 27, qc.Qt.KeepAspectRatio
+        )
+        self.add_image_to_grid(x, y, pixmap_image)
+
+    def add_image_to_grid(self, x, y, pixmap_image):
         tile = qw.QLabel()
         tile.setPixmap(pixmap_image)
         tile.setAlignment(qc.Qt.AlignCenter)
-        # tile.setScaledContents(True)
-        # tile.setMinimumSize(1, 1)
-
         self.grid.addWidget(tile, y, x)
 
     def remove_tile_from_grid(self, x: int, y: int):
@@ -75,10 +76,10 @@ margin: 2px;
         tile.widget().setParent(None)
 
     def remove_player_from_grid(self, x: int, y: int):
-        text = self.grid.itemAtPosition(y, x).widget().text()
+        pixmap_image = self.grid.itemAtPosition(y, x).widget().pixmap()
         self.remove_tile_from_grid(x, y)
         self.remove_tile_from_grid(x, y)
-        self.add_tile_to_grid(text, x, y)
+        self.add_image_to_grid(x, y, pixmap_image)
 
 
 def main():
