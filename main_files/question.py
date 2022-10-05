@@ -16,7 +16,7 @@ class Question(qw.QMainWindow):
         self.setStyleSheet(
             """
 QMainWindow {
-border-image: url("Images/img2.jpg");
+border-image: url("Images/backgrounds/question1.png");
 background-repeat: no-repeat;
 background-position: center;
 }

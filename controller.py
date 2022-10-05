@@ -77,8 +77,10 @@ class Controller:
         # Replace with opened chest icon
         self.view.remove_player_from_grid(*self.player.pos)
         self.view.remove_tile_from_grid(*self.player.pos)
-        self.view.add_tile_to_grid(icons["opened"], *self.player.pos)
-        self.view.add_tile_to_grid("@", *self.player.pos)
+        self.view.add_tile_to_grid(
+            f"Images/{icons['opened']}.png", *self.player.pos
+        )
+        self.view.add_tile_to_grid("Images/player.png", *self.player.pos)
         self.board.nodes[self.player.pos[1]][self.player.pos[0]] = Node(
             *self.player.pos,
             icons["plain"],

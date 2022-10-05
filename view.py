@@ -13,6 +13,16 @@ class View(qw.QMainWindow):
         self.grid = qw.QGridLayout()
         self.centralWidget().setLayout(self.grid)
         self.centralWidget().setStyleSheet("QLabel {}")
+        #         self.centralWidget().setObjectName("main_body")
+        #         self.setStyleSheet(
+        #             """
+        # #main_body {
+        # border-image: url("Images/grass_background.png");
+        # background-repeat: no-repeat;
+        # background-position: center;
+        # }
+        # """
+        #         )
 
         self.stats = qw.QToolBar()
         self.addToolBar(qc.Qt.LeftToolBarArea, self.stats)

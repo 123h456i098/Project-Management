@@ -15,7 +15,7 @@ class FightView(qw.QMainWindow):
         self.exp_to_get = player.level * 2
         self.num_dice = 0
         self.setWindowTitle(f"Fight - level {player.level}")
-        self.setFixedSize(400, 300)
+        self.setFixedSize(400, 400)
         self.p_health = player.stamina
         self.p_max_health = player.max_stamina
         self.setCentralWidget(qw.QWidget())
@@ -23,7 +23,7 @@ class FightView(qw.QMainWindow):
         self.setStyleSheet(
             """
 #main_body {
-border-image: url("Images/img.jpg");
+border-image: url("Images/backgrounds/monster1.png");
 background-repeat: no-repeat;
 background-position: center;
 }

@@ -22,6 +22,20 @@ class Shop(qw.QMainWindow):
         self.setWindowTitle("Shop")
         self.setFixedSize(400, 300)
         self.setCentralWidget(qw.QWidget())
+        self.centralWidget().setObjectName("main_body")
+        self.setStyleSheet(
+            """
+#main_body {
+border-image: url("Images/backgrounds/shop.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+
+QLabel {
+color: black;
+}
+"""
+        )
         self.vbox = qw.QVBoxLayout()
         self.centralWidget().setLayout(self.vbox)
         self.exit_button = qw.QPushButton(f"Back   (you have ${self.p_coins})")
