@@ -36,7 +36,7 @@ tiles = {
 }
 
 icons = {
-    "plain": "plain",
+    "plain": "plain2",
     "wall": "wall",
     "start": "start_pad",
     "finish": "finish_pad",

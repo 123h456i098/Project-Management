@@ -11,18 +11,21 @@ class View(qw.QMainWindow):
         self.setWindowTitle("Dungeon Explorer")
         self.setCentralWidget(qw.QWidget())
         self.grid = qw.QGridLayout()
+        self.grid.setHorizontalSpacing(0)
+        self.grid.setVerticalSpacing(0)
+        self.grid.setContentsMargins(0, 0, 0, 0)
         self.centralWidget().setLayout(self.grid)
         self.centralWidget().setStyleSheet("QLabel {}")
-        #         self.centralWidget().setObjectName("main_body")
-        #         self.setStyleSheet(
-        #             """
-        # #main_body {
-        # border-image: url("Images/grass_background.png");
-        # background-repeat: no-repeat;
-        # background-position: center;
-        # }
-        # """
-        #         )
+        self.centralWidget().setObjectName("main_body")
+        self.setStyleSheet(
+            """
+#main_body {
+border-image: url("Images/grass_background.png");
+background-repeat: no-repeat;
+background-position: center;
+}
+        """
+        )
 
         self.stats = qw.QToolBar()
         self.addToolBar(qc.Qt.LeftToolBarArea, self.stats)
