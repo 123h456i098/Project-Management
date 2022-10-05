@@ -65,8 +65,8 @@ margin: 2px;
         tile = qw.QLabel()
         tile.setPixmap(pixmap_image)
         tile.setAlignment(qc.Qt.AlignCenter)
-        tile.setScaledContents(True)
-        tile.setMinimumSize(1, 1)
+        # tile.setScaledContents(True)
+        # tile.setMinimumSize(1, 1)
 
         self.grid.addWidget(tile, y, x)
 
