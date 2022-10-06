@@ -1,0 +1,303 @@
+[
+    {
+        "question": "Which constellation is depicted on the Australian flag?",
+        "correct": "Southern Cross",
+        "wrong1": "Cancer",
+        "wrong2": "Capricorn",
+        "wrong3": "Arians Belt"
+    },
+    {
+        "question": "What two animals are featured on the Australian coat of arms?",
+        "correct": "Kangaroo & Emu",
+        "wrong1": "Joey & Kangaroo",
+        "wrong2": "Ostrich & Kangaroo",
+        "wrong3": "Kowala & Tasmanian Devil"
+    },
+    {
+        "question": "What is the name of Australia's largest cattle station?",
+        "correct": "Anna Creek Station",
+        "wrong1": "Harold Cliff Station",
+        "wrong2": "Western Eyes Station",
+        "wrong3": "Websterson Station"
+    },
+    {
+        "question": "Which iconic Australian landmark is the world's largest war memorial?",
+        "correct": "The Great Ocean Road",
+        "wrong1": "The Great Victoria Cross",
+        "wrong2": "Pearl Horbour",
+        "wrong3": "Bondi Beach"
+    },
+    {
+        "question": "What percentage of Australia is classified as a desert?",
+        "correct": "35%",
+        "wrong1": "40%",
+        "wrong2": "45%",
+        "wrong3": "50%"
+    },
+    {
+        "question": "Which Australian Island is the largest sand island in the world? ",
+        "correct": "Fraser Island",
+        "wrong1": "Kangaroo Island",
+        "wrong2": "Jubile Island",
+        "wrong3": "Harodson Island"
+    },
+    {
+        "question": "If you visited a different Australian beach every day, how long would it take to visit them all? ",
+        "correct": "Years",
+        "wrong1": "Months",
+        "wrong2": "Weeks",
+        "wrong3": "Days"
+    },
+    {
+        "question": "What type of Mine can you find in Coober Pedy? ",
+        "correct": "Opal Mine",
+        "wrong1": "Ruby Mine",
+        "wrong2": "Gold Mine",
+        "wrong3": "Coal Mine"
+    },
+    {
+        "question": "How many time zones are there in Australia? ",
+        "correct": "3",
+        "wrong1": "1",
+        "wrong2": "2",
+        "wrong3": "4"
+    },
+    {
+        "question": "When is Australia Day? ",
+        "correct": "26th January",
+        "wrong1": "2nd January",
+        "wrong2": "9th January",
+        "wrong3": "14th January"
+    },
+    {
+        "question": "Who was Australia's first female Prime Minister? ",
+        "correct": "Julia Gillard",
+        "wrong1": "Holly Riley",
+        "wrong2": "Jane Hothway",
+        "wrong3": "Amelia Roberts"
+    },
+    {
+        "question": "What is the highest point of Kangaroo Island? ",
+        "correct": "Mount McDonnell",
+        "wrong1": "Kangaroo Peak",
+        "wrong2": "Joey Point",
+        "wrong3": "Mount Guthmore"
+    },
+    {
+        "question": "Which iconic Aussie song starts with: Baby! You were always gonna be the one?",
+        "correct": "Run to Paradise",
+        "wrong1": "Ride to Paradise",
+        "wrong2": "Stairway to Paradise",
+        "wrong3": "Bridge to Paradise"
+    },
+    {
+        "question": "Which Australian instrument is thought to be the worlds oldest musical instrument? ",
+        "correct": "Digeridoo",
+        "wrong1": "Kazoo",
+        "wrong2": "Bongos",
+        "wrong3": "Lute"
+    },
+    {
+        "question": "What was the first public performance at the Sydney Opera House? ",
+        "correct": "War and Peace",
+        "wrong1": "Lads and Lasses",
+        "wrong2": "Westside Story",
+        "wrong3": "Romeo and Juliette"
+    },
+    {
+        "question": "Which international rock star is thought to have given the WORST Grand Final pre-game show ever in 2011? ",
+        "correct": "Meatloaf",
+        "wrong1": "ACDC",
+        "wrong2": "The Beach Boys",
+        "wrong3": "Codfish"
+    },
+    {
+        "question": "What is the name of the true-crime drama series that looks at Australia's gangland past? ",
+        "correct": "Underbelly",
+        "wrong1": "Panthers",
+        "wrong2": "Road to Hell",
+        "wrong3": "Behind the Screen"
+    },
+    {
+        "question": "What animal is the famous 90s cartoon character Blinky Bill? ",
+        "correct": "Koala",
+        "wrong1": "Kangaroo",
+        "wrong2": "Joey",
+        "wrong3": "Emu"
+    },
+    {
+        "question": "Where do the 'Yummy Mummies' live? ",
+        "correct": "Melbourne",
+        "wrong1": "Sydney",
+        "wrong2": "Canburra",
+        "wrong3": "Adilade"
+    },
+    {
+        "question": "In which State is 'Red Dog' set? ",
+        "correct": "Western Australia",
+        "wrong1": "Victoria",
+        "wrong2": "New South Wales",
+        "wrong3": "Northern Territories"
+    },
+    {
+        "question": "How many Hemsworth Brothers are there? ",
+        "correct": "3",
+        "wrong1": "2",
+        "wrong2": "4",
+        "wrong3": "0"
+    },
+    {
+        "question": "What is the highest-grossing Australian film of all time? ",
+        "correct": "Crocodile Dundee",
+        "wrong1": "Red Dog",
+        "wrong2": "Avengers Endgame",
+        "wrong3": "Wild Outback"
+    },
+    {
+        "question": "In which Australian city was Hugh Jackman born? ",
+        "correct": "Sydney",
+        "wrong1": "Canburra",
+        "wrong2": "Adilade",
+        "wrong3": "Melbourne"
+    },
+    {
+        "question": "In which film would you hear the line: 'That'll do pig, that'll do? ",
+        "correct": "Babe",
+        "wrong1": "Crocodile Dundee",
+        "wrong2": "Avengers Endgame",
+        "wrong3": "Wild Outback"
+    },
+    {
+        "question": "Which is the largest Australian city by area?",
+        "correct": "Sydney",
+        "wrong1": "Canburra",
+        "wrong2": "Adilade",
+        "wrong3": "Melbourne"
+    },
+    {
+        "question": "How many States are there in Australia? ",
+        "correct": "6",
+        "wrong1": "4",
+        "wrong2": "5",
+        "wrong3": "7"
+    },
+    {
+        "question": "How many Federal Territories are there in Australia? ",
+        "correct": "10",
+        "wrong1": "11",
+        "wrong2": "12",
+        "wrong3": "13"
+    },
+    {
+        "question": "Which is the longest river in Australia? ",
+        "correct": "Murray River",
+        "wrong1": "Bruce River",
+        "wrong2": "Margret River",
+        "wrong3": "Tasman River"
+    },
+    {
+        "question": "Which is the largest lake in Australia? ",
+        "correct": "Lake Eyre",
+        "wrong1": "Lake Taupo",
+        "wrong2": "Blue Lake",
+        "wrong3": "Lake Amadeus"
+    },
+    {
+        "question": "What is the name of Australia's famous underground town? ",
+        "correct": "Coober Pedy",
+        "wrong1": "Albany",
+        "wrong2": "Kalgoorlie-Boulder",
+        "wrong3": "Geraldton"
+    },
+    {
+        "question": "What is the most populated state in Australia? ",
+        "correct": "New South Wales",
+        "wrong1": "Victoria",
+        "wrong2": "Tasmania",
+        "wrong3": "Queensland"
+    },
+    {
+        "question": "How many UNESCO World Heritage Sites are in Australia? ",
+        "correct": "20",
+        "wrong1": "10",
+        "wrong2": "15",
+        "wrong3": "25"
+    },
+    {
+        "question": "Where would you find the Big Pineapple? ",
+        "correct": "Sunshine Coast",
+        "wrong1": "Bondi Beach",
+        "wrong2": "Sydney Harbour Bridge",
+        "wrong3": "Point Wilson"
+    },
+    {
+        "question": "What time of the day is it at 'sparrow's fart'?",
+        "correct": "Very early in the morning",
+        "wrong1": "Very late at night",
+        "wrong2": "Mid-afternoon",
+        "wrong3": "Mid-morning"
+    },
+    {
+        "question": "What was the late Steve Irwin's famous catchphrase? ",
+        "correct": "Crikey!",
+        "wrong1": "Howdy!",
+        "wrong2": "Hey there mate!",
+        "wrong3": "Ureka!"
+    },
+    {
+        "question": "If you are 'Bending an Elbow' what are you doing? ",
+        "correct": "Drinking a beer",
+        "wrong1": "Smoking a cigarette",
+        "wrong2": "Doing a test",
+        "wrong3": "Watching TV"
+    },
+    {
+        "question": "If I've done a Harold Holt, what did I do? ",
+        "correct": "Disappeared quickly",
+        "wrong1": "Died",
+        "wrong2": "Lost a bet",
+        "wrong3": "Done something stupid while drunk"
+    },
+    {
+        "question": "In what year was the first Crocodile Dundee film released? ",
+        "correct": "1986",
+        "wrong1": "1988",
+        "wrong2": "1990",
+        "wrong3": "1999"
+    },
+    {
+        "question": "Of the 25 most poisonous snakes in the world, how many live in Australia? ",
+        "correct": "21",
+        "wrong1": "20",
+        "wrong2": "25",
+        "wrong3": "24"
+    },
+    {
+        "question": "What Australian animal did the UK think was a prank? ",
+        "correct": "A Platypus",
+        "wrong1": "Koalas",
+        "wrong2": "Kangaroo",
+        "wrong3": "Tasman Devil"
+    },
+    {
+        "question": "How long is the biggest saltwater crocodile ever caught in Australia? ",
+        "correct": "6.17m",
+        "wrong1": "5.17",
+        "wrong2": "5.57",
+        "wrong3": "6.57"
+    },
+    {
+        "question": "What is the collective noun for a group of Kangaroos? ",
+        "correct": "A Mob",
+        "wrong1": "A Murder",
+        "wrong2": "A Flock",
+        "wrong3": "A Frack"
+    },
+    {
+        "question": "How many eyes do Huntsman Spiders have? ",
+        "correct": "8",
+        "wrong1": "10",
+        "wrong2": "6",
+        "wrong3": "16"
+    }
+]

@@ -1,0 +1,303 @@
+[
+    {
+        "question": "What is the capital of Japan?",
+        "correct": "Tokyo",
+        "wrong1": "Yakutsi",
+        "wrong2": "Arimato",
+        "wrong3": "Sakura"
+    },
+    {
+        "question": "Who became the Japanese emperor in 2019?",
+        "correct": "Naruhito",
+        "wrong1": "Sakura",
+        "wrong2": "Shinta",
+        "wrong3": "Kawaii"
+    },
+    {
+        "question": "Which currency is in use in Japan?",
+        "correct": "Yen",
+        "wrong1": "Arimato",
+        "wrong2": "Dollars",
+        "wrong3": "Euro"
+    },
+    {
+        "question": "What is Sakura?",
+        "correct": "Cherry Blossom",
+        "wrong1": "Dress",
+        "wrong2": "Mountain",
+        "wrong3": "Religion"
+    },
+    {
+        "question": "Japan is the third biggest economy in the world. After which two countries?",
+        "correct": "USA and China",
+        "wrong1": "Russia and USA",
+        "wrong2": "China and England",
+        "wrong3": "England and Russia"
+    },
+    {
+        "question": "Which two colours are on the flag of Japan?",
+        "correct": "Red and White",
+        "wrong1": "Blue and Green",
+        "wrong2": "Black and Orange",
+        "wrong3": "Yellow and Purple"
+    },
+    {
+        "question": "What is the largest Japanese island?",
+        "correct": "Honshu",
+        "wrong1": "Kyushu",
+        "wrong2": "Hokkaido",
+        "wrong3": "Shikoku"
+    },
+    {
+        "question": "What is Japan's name in Japanese?",
+        "correct": "Nippon",
+        "wrong1": "Sika",
+        "wrong2": "Hokkaido",
+        "wrong3": "Shinano"
+    },
+    {
+        "question": "What is the traditional dress of Japan?",
+        "correct": "The Kimono",
+        "wrong1": "The Kawaii",
+        "wrong2": "The Kaishodo",
+        "wrong3": "The Kominai"
+    },
+    {
+        "question": "Which volcano erupted in 1707?",
+        "correct": "Mount Fuji",
+        "wrong1": "Mount Yoko",
+        "wrong2": "Mount Ayumi",
+        "wrong3": "Mount Hamasaki"
+    },
+    {
+        "question": "What is the current population of Japan?",
+        "correct": "125.8 million",
+        "wrong1": "1.32 hundred million",
+        "wrong2": "208.3 million",
+        "wrong3": "207.3 million"
+    },
+    {
+        "question": "What is 'Shinto'?",
+        "correct": "A religion",
+        "wrong1": "Moutain",
+        "wrong2": "Dress",
+        "wrong3": "Cherry Blossom"
+    },
+    {
+        "question": "What is the most popular western nickname for Japan?",
+        "correct": "Land of the Rising Sun",
+        "wrong1": "Land of the Long White Cloud",
+        "wrong2": "Land of the Tornados",
+        "wrong3": "Land of the Green Dragon"
+    },
+    {
+        "question": "What is the population of Tokyo?",
+        "correct": "13.96 million",
+        "wrong1": "145.3 hundred thousand",
+        "wrong2": "23.32 million",
+        "wrong3": "9.98 million"
+    },
+    {
+        "question": "Which type of deer is also known as the spotted deer or the Japanese deer?",
+        "correct": "Sika Deer",
+        "wrong1": "Suka Deer",
+        "wrong2": "Soki Deer",
+        "wrong3": "Siku Deer"
+    },
+    {
+        "question": "What is Kinkaku-ji?",
+        "correct": "A Temple",
+        "wrong1": "A Religion",
+        "wrong2": "A Weave",
+        "wrong3": "A Flower"
+    },
+    {
+        "question": "What is the other name given to the Japanese macaque?",
+        "correct": "Snow Monkey",
+        "wrong1": "Gilled Swan",
+        "wrong2": "Devils Spider",
+        "wrong3": "Dusted Macaw"
+    },
+    {
+        "question": "In which city can you find Godzilla Road?",
+        "correct": "Tokyo",
+        "wrong1": "Kyoto",
+        "wrong2": "Osaka",
+        "wrong3": "Hiroshima"
+    },
+    {
+        "question": "How is the culture of cuteness in Japan called?",
+        "correct": "Kawaii",
+        "wrong1": "Kinkaku-ji",
+        "wrong2": "Atatakai",
+        "wrong3": "Denwa"
+    },
+    {
+        "question": "If you are taking the fastest train from Tokyo to Osaka, how long will it take?",
+        "correct": "2hrs 30mins",
+        "wrong1": "2hrs",
+        "wrong2": "1hr",
+        "wrong3": "1hr 15mins"
+    },
+    {
+        "question": "What is the longest river in Japan?",
+        "correct": "Shinano River",
+        "wrong1": "Bishoujo River",
+        "wrong2": "Futago River",
+        "wrong3": "Ichiban River"
+    },
+    {
+        "question": "Which famous Japanese woman was married to John Lennon?",
+        "correct": "Yoko Ono",
+        "wrong1": "Donarudo toranpu",
+        "wrong2": "Ka Hon",
+        "wrong3": "Kawaii Getsu"
+    },
+    {
+        "question": "How many samurai are there in the 1954 movie “_______ Samurai”",
+        "correct": "Seven",
+        "wrong1": "Twenty",
+        "wrong2": "Three",
+        "wrong3": "One"
+    },
+    {
+        "question": "What is Pokémon an abbreviation for in Japan?",
+        "correct": "Pocket Monsters",
+        "wrong1": "Peace Makers",
+        "wrong2": "Little Devils",
+        "wrong3": "Tamed Fighters"
+    },
+    {
+        "question": "What type of series is 'Erased'?",
+        "correct": "A manga",
+        "wrong1": "An anime",
+        "wrong2": "A movie",
+        "wrong3": "A comic"
+    },
+    {
+        "question": "Who was the first emperor of Japan?",
+        "correct": "Jimmu Tenno",
+        "wrong1": "Tempura Sako",
+        "wrong2": "Kyoto Ay",
+        "wrong3": "Koy Saki"
+    },
+    {
+        "question": "On which side was Japan in WWI?",
+        "correct": "Allies",
+        "wrong1": "Axis",
+        "wrong2": "Alliance",
+        "wrong3": "Attackers"
+    },
+    {
+        "question": "Which US military based was attack by Japan during WWII?",
+        "correct": "Pearl Harbor",
+        "wrong1": "Diamond Cove",
+        "wrong2": "Emerald Beach",
+        "wrong3": "Ruby Bay"
+    },
+    {
+        "question": "On which side was Japan in WWII?",
+        "correct": "Axis",
+        "wrong1": "Allies",
+        "wrong2": "Alliance",
+        "wrong3": "Attackers"
+    },
+    {
+        "question": "What was the capital of Japan before Tokyo?",
+        "correct": "Kyoto",
+        "wrong1": "Hiroshima",
+        "wrong2": "Osaka",
+        "wrong3": "Nagoya"
+    },
+    {
+        "question": "When did Japan become a member of the United Nations?",
+        "correct": "1956",
+        "wrong1": "1899",
+        "wrong2": "1912",
+        "wrong3": "1943"
+    },
+    {
+        "question": "Which two Japanese cities were bombed by the US in 1945?",
+        "correct": "Hiroshima and Nagasaki",
+        "wrong1": "Tokyo and Osaka",
+        "wrong2": "Hiroshima and Tokyo",
+        "wrong3": "Nagasaki and Osaka"
+    },
+    {
+        "question": "What type of meat are Kobe and Wagyu?",
+        "correct": "Beef",
+        "wrong1": "Chicken",
+        "wrong2": "Lamb",
+        "wrong3": "Pork"
+    },
+    {
+        "question": "Which Japanese dish consists of food battered and deep fried?",
+        "correct": "Tempura",
+        "wrong1": "Kaminari",
+        "wrong2": "Oni",
+        "wrong3": "Kuragari"
+    },
+    {
+        "question": "Which meat is used to make Yakitori?",
+        "correct": "Chicken",
+        "wrong1": "Beef",
+        "wrong2": "Pork",
+        "wrong3": "Lamb"
+    },
+    {
+        "question": "What broth is used to make Miso Soup?",
+        "correct": "Dashi",
+        "wrong1": "Moku",
+        "wrong2": "Mizu",
+        "wrong3": "Sui"
+    },
+    {
+        "question": "What does Donburi mean in Japanese?",
+        "correct": "Bowl",
+        "wrong1": "Plate",
+        "wrong2": "Tea",
+        "wrong3": "Cup"
+    },
+    {
+        "question": "Iwama Ryu, Iwama Shin Shin Aiki Shuren Kai are all forms of which Japanese martial art?",
+        "correct": "Aikido",
+        "wrong1": "Taichi",
+        "wrong2": "Karate",
+        "wrong3": "Nagano"
+    },
+    {
+        "question": "In which city can you find the Universal Studios in Japan?",
+        "correct": "Osaka",
+        "wrong1": "Tokya",
+        "wrong2": "Hiroshima",
+        "wrong3": "Nagano"
+    },
+    {
+        "question": "What is Shinkansen?",
+        "correct": "High-speed train",
+        "wrong1": "Figure skating",
+        "wrong2": "Religion",
+        "wrong3": "Market"
+    },
+    {
+        "question": "How many times has Tokyo hosted the Summer Olympics?",
+        "correct": "Twice",
+        "wrong1": "Nonce",
+        "wrong2": "Once",
+        "wrong3": "Thrice"
+    },
+    {
+        "question": "Which sport is Naomi Osaka known for?",
+        "correct": "Tennis",
+        "wrong1": "Figure skating",
+        "wrong2": "Baseball",
+        "wrong3": "Football"
+    },
+    {
+        "question": "Which sport is Ichiro Suzuki known for?",
+        "correct": "Baseball",
+        "wrong1": "Figure skating",
+        "wrong2": "Tennis",
+        "wrong3": "Football"
+    }
+]
