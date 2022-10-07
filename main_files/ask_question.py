@@ -27,6 +27,9 @@ class Ask_Question:
         wrongs = [question["wrong1"], question["wrong2"], question["wrong3"]]
         answers = wrongs + [correct]
         self.question = qw.QLabel(text)
+        self.question.setWordWrap(True)
+        self.question.setFixedWidth(350)
+        # self.question.setFixedHeight(40)
         self.vbox2.addWidget(self.question, 0, qc.Qt.AlignCenter)
         self.vbox2.addStretch()
         random.shuffle(answers)

@@ -62,6 +62,8 @@ color: black;
     def accept_reward(self):
         reward = qw.QLabel(self.text)
         reward.setFont(qg.QFont("Consolas", 24))
+        reward.setWordWrap(True)
+        reward.setFixedWidth(350)
         self.grid.addWidget(reward, 1, 1)
         self.accept.setText("Collect")
         self.accept.clicked.connect(

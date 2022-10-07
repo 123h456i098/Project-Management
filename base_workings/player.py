@@ -8,7 +8,7 @@ class Player:
         self.stamina = self.max_stamina
         self.exp = 0
         self.level = 1
-        self.coins = 10
+        self.coins = 0
         self.on_level_up = level_up
 
     def gain_health(self, health):
