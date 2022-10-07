@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, x, y, board, w, h):
+    def __init__(self, x, y, board, w, h, level_up):
         self.pos = [x, y]
         self.board = board
         self.board_w = w
@@ -9,6 +9,7 @@ class Player:
         self.exp = 0
         self.level = 1
         self.coins = 10
+        self.on_level_up = level_up
 
     def gain_health(self, health):
         self.stamina += health
@@ -48,3 +49,4 @@ class Player:
         self.level += 1
         self.max_stamina += 10
         self.stamina = self.max_stamina
+        self.on_level_up(self.level)

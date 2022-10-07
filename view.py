@@ -48,6 +48,9 @@ margin: 2px;
     def set_controllers_enter_function(self, function):
         self.controllers_enter_function = function
 
+    def message_box(self, text):
+        qw.QMessageBox(qw.QMessageBox.Information, text[0], text[1]).exec()
+
     def add_label_to_toolbar(self, text):
         label = qw.QLabel(text)
         self.toolbar_labels.append(label)

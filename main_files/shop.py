@@ -48,7 +48,7 @@ color: black;
         self.hbox = qw.QHBoxLayout()
         self.vbox.addLayout(self.hbox)
         # 3 rewards, answer, exp, health
-        self.tags = ["An answer", "Some EXP", "Some health"]
+        self.tags = ["An answer", "Some EXP", "Some stamina"]
         self.prices = [randint(2, 4) for _ in range(3)]
         self.products = [
             Ask_Question().get_answer(),
@@ -87,10 +87,12 @@ background-color: rgba(255, 255, 255, 150);
             self.p_coins -= self.prices.pop(index)
             self.exit_button.setText(f"Back   (you have ${self.p_coins})")
             tag = self.tags.pop(index)
+            if tag == "An answer":
+                text = f"Q: {self.products[index][0]}\nA: {self.products[index][1]}"
+            else:
+                text = f"You get: +{self.products[index]} {tag.split(' ')[1]}"
             qw.QMessageBox(
-                qw.QMessageBox.Icon.Information,
-                f"Bought {tag}",
-                f"{self.products[index]}",
+                qw.QMessageBox.Icon.Information, f"Bought {tag}", text
             ).exec()
             if tag == "Some EXP":
                 self.exp_to_get = self.products[index]

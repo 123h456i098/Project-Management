@@ -13,7 +13,9 @@ class Controller:
         h += 1 if h % 2 == 0 else 0
         w += 1 if w % 2 == 0 else 0
         self.board = MapBoard(w, h)
-        self.player = Player(*self.board.start, self.board.nodes, w, h)
+        self.player = Player(
+            *self.board.start, self.board.nodes, w, h, self.on_player_level_up
+        )
         self.view.set_controllers_action_function(self.action)
         self.view.set_controllers_enter_function(lambda: None)
         self.actions = {
@@ -24,6 +26,13 @@ class Controller:
             "Shop": self.open_shop,
             "Finish": lambda: print("finish"),
         }
+
+    def on_player_level_up(self, level):
+        text = (
+            f"You have reached Level: {level}\n "
+            + "Your max stamina has increased."
+        )
+        self.view.message_box(["Level up!", text])
 
     def trap(self):
         self.player.stamina -= 1
