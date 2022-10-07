@@ -1,0 +1,303 @@
+[
+    {
+        "question": "New Zealand lies on the boundary of what two tectonic plates?",
+        "correct": "Australian and Pacific",
+        "wrong1": "African and Antarctic",
+        "wrong2": "Eurasian and Indo-Australian",
+        "wrong3": "Indian and Pacific"
+    },
+    {
+        "question": "Leaving Nelson we now travel to the northern most area of the South Island. Where are we?",
+        "correct": "Cape Farewell",
+        "wrong1": "Cape Goodbye",
+        "wrong2": "Nelson Cape",
+        "wrong3": " Northern Cape"
+    },
+    {
+        "question": "Auckland is situated between two harbors. What is the geographical name for this configuration?",
+        "correct": "Isthmus",
+        "wrong1": "Plateaus",
+        "wrong2": "Mesas",
+        "wrong3": "Basins"
+    },
+    {
+        "question": "Auckland is situated between which two harbours?",
+        "correct": "The Manukau, and The Waitemata",
+        "wrong1": "The Kaipara and The Bluff",
+        "wrong2": "The Manukau and the Kaipara",
+        "wrong3": "The Bluff and The Waitemata"
+    },
+    {
+        "question": "What is the Maori name for the Bay of Islands town Russell?",
+        "correct": "Kororareka",
+        "wrong1": "Waikouaiti",
+        "wrong2": "Omakau",
+        "wrong3": "Waihola"
+    },
+    {
+        "question": "Which of these is not one of Dunedin City offshore islands?",
+        "correct": "Black Island",
+        "wrong1": "White Island",
+        "wrong2": "Green Island",
+        "wrong3": "Taieri Island"
+    },
+    {
+        "question": "What small island off the coast of Dunedin has the same name as an island off the coast of North Island?",
+        "correct": "White Island",
+        "wrong1": "Taieri Island",
+        "wrong2": "Black Island",
+        "wrong3": "Green Island"
+    },
+    {
+        "question": "In which New Zealand city would you find the building known as the Beehive?",
+        "correct": "Wellington",
+        "wrong1": "Auckland",
+        "wrong2": "Christchurch",
+        "wrong3": "Otago"
+    },
+    {
+        "question": "New Zealand's first capital was in Russell in the Bay of Islands but was moved to which NZ town?",
+        "correct": "Auckland",
+        "wrong1": "Wellington",
+        "wrong2": "Christchurch",
+        "wrong3": "Otago"
+    },
+    {
+        "question": "What Otago town sits on a shore of a lake whose name means 'Spreading water' in Maori? ",
+        "correct": "Waihola",
+        "wrong1": "Wanaka",
+        "wrong2": "Omakau",
+        "wrong3": "Waikouaiti"
+    },
+    {
+        "question": "Starting in the 1890s, the gold rush was located closest to which Otago town?",
+        "correct": "Lawrence",
+        "wrong1": "Arrowtown",
+        "wrong2": "Cromwell",
+        "wrong3": "Clyde"
+    },
+    {
+        "question": "The discovery of what natural resource made Dunedin become the most populated city in New Zealand in the late 1800s?",
+        "correct": "Gold",
+        "wrong1": "Iron",
+        "wrong2": "Coal",
+        "wrong3": "Diamond"
+    },
+    {
+        "question": "What was the first town in New Zealand to be considered a city?",
+        "correct": "Dunedin",
+        "wrong1": "Invercargill",
+        "wrong2": "Nelson",
+        "wrong3": "Kaikoura"
+    },
+    {
+        "question": "What is the Maori name for New Zealand?",
+        "correct": "Aotearoa",
+        "wrong1": "Whakatū",
+        "wrong2": "Te Tihi-o-Maru",
+        "wrong3": "Ōtautahi"
+    },
+    {
+        "question": "St Kilda, Woodhaugh, Caversham and Forbury are all suburbs of which South Island city?",
+        "correct": "Dunedin",
+        "wrong1": "Nelson",
+        "wrong2": "Kaikoura",
+        "wrong3": "Christchurch"
+    },
+    {
+        "question": "Which of these are not suburbs of Dunedin?",
+        "correct": "Coversham",
+        "wrong1": "St Kilda",
+        "wrong2": "Woodhaugh",
+        "wrong3": "Forbury"
+    },
+    {
+        "question": "Which of these are a commercial ski field in the Queenstown area?",
+        "correct": "The Remarkables",
+        "wrong1": "Treble Cone",
+        "wrong2": "Cardrona",
+        "wrong3": "Whakapapa"
+    },
+    {
+        "question": "What is the longest river in the South Island?",
+        "correct": "Clutha",
+        "wrong1": "Whanganui",
+        "wrong2": "Waikato",
+        "wrong3": "Waiau"
+    },
+    {
+        "question": "How many stars on the New Zealand flag?",
+        "correct": "4",
+        "wrong1": "3",
+        "wrong2": "5",
+        "wrong3": "50"
+    },
+    {
+        "question": "Which town is a self-declared republic in the Taranaki region?",
+        "correct": "Whangamomona",
+        "wrong1": "Whangarei",
+        "wrong2": "Whanganui",
+        "wrong3": "Wanaka"
+    },
+    {
+        "question": "What is the main religion of New Zealand?",
+        "correct": "Christianity",
+        "wrong1": "Islam",
+        "wrong2": "The Ratana Church",
+        "wrong3": "Buddhism"
+    },
+    {
+        "question": "What bay is commonly known as Murderers Bay?",
+        "correct": "Golden Bay",
+        "wrong1": "Tasman Bay",
+        "wrong2": "Hawke Bay",
+        "wrong3": "Karamea Bay"
+    },
+    {
+        "question": "What northern town has a steam locomotive on display, but has never had a railway?",
+        "correct": "Kaitaia",
+        "wrong1": "Ahipara",
+        "wrong2": "Cape Reinga",
+        "wrong3": "Mangonui"
+    },
+    {
+        "question": "The Maori name for New Zealand is Aotearoa. What does this mean in English?",
+        "correct": "Land of the Long White Cloud",
+        "wrong1": "Land of the Many",
+        "wrong2": "New World",
+        "wrong3": "Green world"
+    },
+    {
+        "question": "Approximately, what percentage of the population of New Zealand is Maori?",
+        "correct": "10%",
+        "wrong1": "15%",
+        "wrong2": "5%",
+        "wrong3": "20%"
+    },
+    {
+        "question": "In which South Island town can a great big monument of a fish be seen when you drive in?",
+        "correct": "Rakaia",
+        "wrong1": "Whaikōrero",
+        "wrong2": "Tangihanga",
+        "wrong3": "Kaikōrero"
+    },
+    {
+        "question": "What is the name of the southern hemisphere's deepest cave system?",
+        "correct": "Nettlebed",
+        "wrong1": "Clearwater",
+        "wrong2": "Lechuguilla",
+        "wrong3": "Jewel"
+    },
+    {
+        "question": "What is the name of the beachside town located to the west of Kaitaia?",
+        "correct": "Ahipara",
+        "wrong1": "Karanga",
+        "wrong2": "Waiata",
+        "wrong3": "Whare kai"
+    },
+    {
+        "question": "What is the Maori name for Stewart Island?",
+        "correct": "Rakiura",
+        "wrong1": "Nikau",
+        "wrong2": "Aroha",
+        "wrong3": "Hīkoi"
+    },
+    {
+        "question": "What is the name of the main seaside suburb of Christchurch?",
+        "correct": "New Brighton",
+        "wrong1": "Latimer",
+        "wrong2": "Victoria",
+        "wrong3": "Inner City West"
+    },
+    {
+        "question": "What is the largest city by population on the South Island?",
+        "correct": "Christchurch",
+        "wrong1": "Hamilton",
+        "wrong2": "Tauranga",
+        "wrong3": "Invercargill"
+    },
+    {
+        "question": "Which town is found on the shores of the Bay of Plenty?",
+        "correct": "Whakatane",
+        "wrong1": "Queenstown",
+        "wrong2": "Dunedin",
+        "wrong3": "Napier"
+    },
+    {
+        "question": "What is the name of the popular bay in Timaru?",
+        "correct": "Caroline Bay",
+        "wrong1": "Goldern Bay",
+        "wrong2": "Hawke Bay",
+        "wrong3": "Jackson Bay"
+    },
+    {
+        "question": "What is the name of New Zealand's largest city?",
+        "correct": "Auckland",
+        "wrong1": "Wellington",
+        "wrong2": "Rotorua",
+        "wrong3": "Christchurch"
+    },
+    {
+        "question": "Which of these features does NOT describe the kiwi?",
+        "correct": "Low Hearing",
+        "wrong1": "Flightless",
+        "wrong2": "Endangered",
+        "wrong3": "Nocternal"
+    },
+    {
+        "question": "Which of the following towns/cities has Tim Shadbolt been the mayor of?",
+        "correct": "Invercargill",
+        "wrong1": "Queenstown",
+        "wrong2": "Dunedin",
+        "wrong3": "Rotorua"
+    },
+    {
+        "question": "What is the name of the New Zealander who allegedly flew around the same time, if not before, the Wright brothers?",
+        "correct": "Richard Pearse",
+        "wrong1": "Willie Tarah",
+        "wrong2": "Lizbeth Case",
+        "wrong3": "Noelle Merv"
+    },
+    {
+        "question": "What is the main ingredient of the ANZAC biscuit?",
+        "correct": "Rolled oats",
+        "wrong1": "Apple",
+        "wrong2": "Dates",
+        "wrong3": "Sugar"
+    },
+    {
+        "question": "The three main islands of New Zealand are North Island, South Island and this island.",
+        "correct": "Stewart",
+        "wrong1": "Chatham",
+        "wrong2": "White",
+        "wrong3": "Great Barrier"
+    },
+    {
+        "question": "Which river runs through the city of Hamilton?",
+        "correct": "Waikato",
+        "wrong1": "Whanganui",
+        "wrong2": "Clutha",
+        "wrong3": "Buller"
+    },
+    {
+        "question": "What is the name of NZ's longest range of mountains?",
+        "correct": "Southern Alps",
+        "wrong1": "Andes",
+        "wrong2": "Alps",
+        "wrong3": "Northern Andes"
+    },
+    {
+        "question": "What street holds the record for being the steepest in the world?",
+        "correct": "Baldwin Street",
+        "wrong1": "Ballance Street",
+        "wrong2": "Boulcott Street",
+        "wrong3": "Bowen Street"
+    },
+    {
+        "question": "How many volcanoes are there in Auckland?",
+        "correct": "53",
+        "wrong1": "45",
+        "wrong2": "41",
+        "wrong3": "35"
+    }
+]

@@ -124,5 +124,180 @@
         "wrong1": "Yorkshire Pie",
         "wrong2": "Cranberry Slice",
         "wrong3": "The Scots are coming!"
+    },
+    {
+        "question": "What is the second-largest city in England?",
+        "correct": "Birmingham",
+        "wrong1": "London",
+        "wrong2": "Bristol",
+        "wrong3": "Oxford"
+    },
+    {
+        "question": "Who is the patron saint of England?",
+        "correct": "St George",
+        "wrong1": "St James",
+        "wrong2": "St Andrews",
+        "wrong3": "St Paul"
+    },
+    {
+        "question": "What is the tallest building in England?",
+        "correct": "The Shard",
+        "wrong1": "The Pike",
+        "wrong2": "The Gerkin",
+        "wrong3": "The Sky Tower"
+    },
+    {
+        "question": "What is the official animal of England?",
+        "correct": "Lion",
+        "wrong1": "Dragon",
+        "wrong2": "Unicorn",
+        "wrong3": "Eagle"
+    },
+    {
+        "question": "What is the slang word given to the London Underground?",
+        "correct": "The Tube",
+        "wrong1": "Under",
+        "wrong2": "Downtown",
+        "wrong3": "The Metro"
+    },
+    {
+        "question": "What colour is the packaging of a Cadbury Dairy Milk bar?",
+        "correct": "Purple",
+        "wrong1": "Blue",
+        "wrong2": "White",
+        "wrong3": "Green"
+    },
+    {
+        "question": "Which fish is traditionally used to make fish and chips?",
+        "correct": "Cod",
+        "wrong1": "Trout",
+        "wrong2": "Salmon",
+        "wrong3": "Herring"
+    },
+    {
+        "question": "How far is England from France?",
+        "correct": "32 km",
+        "wrong1": "30 km",
+        "wrong2": "28 km",
+        "wrong3": "26 km"
+    },
+    {
+        "question": "Which one of these famous scientists and inventors was not born in England?",
+        "correct": "Alexander Graham Bell",
+        "wrong1": "Isaac Newton",
+        "wrong2": "Charles Darwin",
+        "wrong3": "Stephen Hawkins"
+    },
+    {
+        "question": "When did the Great British Bake Off start?",
+        "correct": "2010",
+        "wrong1": "2005",
+        "wrong2": "2015",
+        "wrong3": "2020"
+    },
+    {
+        "question": "What wouldn't you find in a Full English Breakfast?",
+        "correct": "Haddock",
+        "wrong1": "Black Pudding",
+        "wrong2": "Mushrooms",
+        "wrong3": "Baked Beans"
+    },
+    {
+        "question": "How many cups of tea do the British drink each day?",
+        "correct": "100 million",
+        "wrong1": "50 million",
+        "wrong2": "10 million",
+        "wrong3": "500 million"
+    },
+    {
+        "question": "Who was Henry VIII's first wife?",
+        "correct": "Catherine of Aragon",
+        "wrong1": "Anne Boleyn",
+        "wrong2": "Jane Seymour",
+        "wrong3": "Anne of Cleves"
+    },
+    {
+        "question": "Which one of the following English monarchs reigned first?",
+        "correct": "William IV",
+        "wrong1": "George V",
+        "wrong2": "Victoria",
+        "wrong3": "Edward VII"
+    },
+    {
+        "question": "Which scientist wrote ‘The Theory of Everything’?",
+        "correct": "Stephen Hawking",
+        "wrong1": "Charles Darwin",
+        "wrong2": "Rosalind Franklin",
+        "wrong3": "Tim Berners-Lee"
+    },
+    {
+        "question": "What was the most visited museum in England in 2020?",
+        "correct": "Tate Modern",
+        "wrong1": "British Museum",
+        "wrong2": "Natural History Museum",
+        "wrong3": "Victoria and Albert Museum"
+    },
+    {
+        "question": "When did the Glastonbury festival start?",
+        "correct": "1970",
+        "wrong1": "1960",
+        "wrong2": "1980",
+        "wrong3": "1990"
+    },
+    {
+        "question": "Who was Prime Minister during the Brexit Referendum?",
+        "correct": "David Cameron",
+        "wrong1": "Theresa May",
+        "wrong2": "Boris Johnson",
+        "wrong3": "Liz Truss"
+    },
+    {
+        "question": "Which cross is on the flag of England?",
+        "correct": "Cross of St George",
+        "wrong1": "Cross of the British Empire",
+        "wrong2": "Cross of St Joseph",
+        "wrong3": "Cross of the British Monarchy"
+    },
+    {
+        "question": "In which city can you hear a Cockney accent?",
+        "correct": "London",
+        "wrong1": "Liverpool",
+        "wrong2": "Bristol",
+        "wrong3": "Nottingham"
+    },
+    {
+        "question": "What is the longest river flowing entirely in England?",
+        "correct": "Thames",
+        "wrong1": "Severn",
+        "wrong2": "Trent",
+        "wrong3": "Tyne"
+    },
+    {
+        "question": "What was Adele's first album?",
+        "correct": "19",
+        "wrong1": "21",
+        "wrong2": "20",
+        "wrong3": "18"
+    },
+    {
+        "question": "Who was Prince Andrew's first wife?",
+        "correct": "Sarah Ferguson",
+        "wrong1": "Eugenie Brooksbank",
+        "wrong2": "Ghislaine Maxwell",
+        "wrong3": "Anne Tindall"
+    },
+    {
+        "question": "In which county is Leeds?",
+        "correct": "West Yorkshire",
+        "wrong1": "Cambridgeshire",
+        "wrong2": "Derbyshire",
+        "wrong3": "East Sussex"
+    },
+    {
+        "question": "In which National park can you find a mountain called Mam Tor?",
+        "correct": "Peak District",
+        "wrong1": "Lake District",
+        "wrong2": "Yorkshire Dales",
+        "wrong3": "Pembrokes Coast"
     }
 ]
