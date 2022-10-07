@@ -63,7 +63,7 @@ color: black;
         reward = qw.QLabel(self.text)
         reward.setFont(qg.QFont("Consolas", 24))
         self.grid.addWidget(reward, 1, 1)
-        self.accept.text = "Collect"
+        self.accept.setText("Collect")
         self.accept.clicked.connect(
             lambda: self.end_func(self.gold, self.health)
         )

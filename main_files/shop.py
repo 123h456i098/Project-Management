@@ -1,5 +1,5 @@
 from random import randint
-from PySide6 import QtWidgets as qw
+from PySide6 import QtWidgets as qw, QtCore as qc
 from main_files.ask_question import Ask_Question
 
 # shop screen
@@ -63,13 +63,14 @@ color: black;
                 """
 #item-area {
 border: 2px solid black;
+background-color: rgba(255, 255, 255, 150);
 }
 """
             )
             vbox = qw.QVBoxLayout()
             widget.setLayout(vbox)
             title = qw.QLabel(f"{tag}\n")
-            vbox.addWidget(title)
+            vbox.addWidget(title, 1, qc.Qt.AlignCenter)
             button = qw.QPushButton(f"${self.prices[index]}")
             self.buttons.append(button)
             vbox.addWidget(button)
