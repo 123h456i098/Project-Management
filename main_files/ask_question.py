@@ -2,7 +2,7 @@ import json
 from PySide6 import QtWidgets as qw, QtCore as qc
 import random
 
-level_questions = ["american", "australia", "england", "japan", "new_zealand"]
+level_questions = ["australia", "england", "japan", "new_zealand"]
 
 
 class Ask_Question:
