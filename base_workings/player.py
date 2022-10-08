@@ -1,14 +1,16 @@
 class Player:
-    def __init__(self, x, y, board, w, h, level_up):
-        self.pos = [x, y]
-        self.board = board
-        self.board_w = w
-        self.board_h = h
+    def __init__(self):
         self.max_stamina = 10
         self.stamina = self.max_stamina
         self.exp = 0
         self.level = 1
         self.coins = 0
+
+    def set_up(self, pos, board, w, h, level_up):
+        self.pos = pos
+        self.board = board
+        self.board_w = w
+        self.board_h = h
         self.on_level_up = level_up
 
     def gain_health(self, health):

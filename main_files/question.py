@@ -3,10 +3,13 @@ from PySide6 import QtWidgets as qw
 
 
 class Question(qw.QMainWindow):
-    def __init__(self, end_function):
+    def __init__(self, end_function, level):
         super().__init__()
         self.question_machine = Ask_Question(
-            self.back_to_main_screen, self.get_question_right, self.take_damage
+            level,
+            self.back_to_main_screen,
+            self.get_question_right,
+            self.take_damage,
         )
         self.end_function = end_function
         self.setWindowTitle("Question")

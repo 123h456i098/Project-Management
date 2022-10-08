@@ -6,9 +6,9 @@ from PIL.ImageQt import ImageQt
 
 
 class View(qw.QMainWindow):
-    def __init__(self):
+    def __init__(self, level):
         super().__init__()
-        self.setWindowTitle("Dungeon Explorer")
+        self.setWindowTitle(f"Dungeon Explorer - Level{level}")
         self.setCentralWidget(qw.QWidget())
         self.grid = qw.QGridLayout()
         self.grid.setHorizontalSpacing(0)
@@ -98,14 +98,10 @@ margin: 2px;
         self.add_image_to_grid(x, y, pixmap_image)
 
 
-def main():
+def main(level, player):
     app = qw.QApplication([])
-    win = View()
-    control = Controller(win, 20, 20)
+    win = View(level)
+    control = Controller(win, 20, 20, player, level)
     control.start()
     win.show()
     exit(app.exec())
-
-
-if __name__ == "__main__":
-    main()

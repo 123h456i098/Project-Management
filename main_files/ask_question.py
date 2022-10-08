@@ -2,14 +2,20 @@ import json
 from PySide6 import QtWidgets as qw, QtCore as qc
 import random
 
+level_questions = ["american", "australia", "england", "japan", "new_zealand"]
+
 
 class Ask_Question:
-    def __init__(self, back_to_main_screen=None, correct=None, wrong=None):
+    def __init__(
+        self, level, back_to_main_screen=None, correct=None, wrong=None
+    ):
         self.correct = correct
         self.wrong = wrong
         self.back_to_main_screen = back_to_main_screen
-        with open("questions/england_questions.json", "r") as read_file:
+        file_name = f"questions/{level_questions[level-1]}_questions.json"
+        with open(file_name, "r") as read_file:
             self.questions = json.load(read_file)
+        print(self.questions)
 
     def get_answer(self):
         question = random.choice(self.questions)

@@ -1,4 +1,3 @@
-from base_workings.player import Player
 from base_workings.map_generation_using_kruskals_alg import MapBoard, Node
 from base_workings.tiles import icons
 from main_files.fighting import FightView
@@ -8,14 +7,17 @@ from main_files.shop import Shop
 
 
 class Controller:
-    def __init__(self, view, w, h):
+    def __init__(self, view, w, h, player, level):
+        self.level = level
         self.view = view
         h += 1 if h % 2 == 0 else 0
         w += 1 if w % 2 == 0 else 0
         self.board = MapBoard(w, h)
-        self.player = Player(
-            *self.board.start, self.board.nodes, w, h, self.on_player_level_up
+        self.player = player
+        self.player.set_up(
+            self.board.start, self.board.nodes, w, h, self.on_player_level_up
         )
+
         self.view.set_controllers_action_function(self.action)
         self.view.set_controllers_enter_function(lambda: None)
         self.actions = {
@@ -40,24 +42,24 @@ class Controller:
 
     # region - Open views
     def open_fight_view(self):
-        self.fight = FightView(self.player, self._done_fighting)
+        self.fight = FightView(self.player, self._done_fighting, self.level)
         self.fight.show()
         self.view.hide()
 
     def open_question(self):
-        self.question = Question(self._done_question)
+        self.question = Question(self._done_question, self.level)
         self.question.show()
         self.view.hide()
 
     def open_chest(self):
-        self.chest = Chest(self.done_chest)
+        self.chest = Chest(self.done_chest, self.level)
         self.chest.show()
         self.view.hide()
 
     def open_shop(self):
         s = self.board.nodes[self.player.pos[1]][self.player.pos[0]].view
         if s is None:
-            s = Shop(self.done_shop, self.player.coins)
+            s = Shop(self.done_shop, self.player.coins, self.level)
             self.board.nodes[self.player.pos[1]][self.player.pos[0]].view = s
         s.show()
         self.view.hide()
@@ -179,8 +181,13 @@ class Controller:
             self.actions[current_tile.tile.action]()
             self.view.remove_player_from_grid(*self.player.pos)
             self.view.remove_tile_from_grid(*self.player.pos)
+            file_name = "Images/{}.png".format(
+                icons[
+                    "plain" if current_tile.tile.action != "Trap" else "trap"
+                ]
+            )
             self.view.add_tile_to_grid(
-                f"Images/{icons['plain' if current_tile.tile.action != 'Trap' else 'trap']}.png",
+                file_name,
                 *self.player.pos,
             )
             self.view.add_tile_to_grid("Images/player.png", *self.player.pos)

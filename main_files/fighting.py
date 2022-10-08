@@ -5,10 +5,13 @@ from main_files.ask_question import Ask_Question
 
 
 class FightView(qw.QMainWindow):
-    def __init__(self, player, end_function):
+    def __init__(self, player, end_function, level):
         super().__init__()
         self.question_machine = Ask_Question(
-            self.back_to_main_screen, self.get_question_right, self.take_damage
+            level,
+            self.back_to_main_screen,
+            self.get_question_right,
+            self.take_damage,
         )
         self.end_function = end_function
         self.health = player.level * 2

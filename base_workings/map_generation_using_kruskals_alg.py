@@ -89,7 +89,7 @@ class MapBoard:
             for x, each in enumerate(row):
                 each.tile = tiles[each.tile_type]
                 if each.tile_type == "start":
-                    self.start = (x, y)
+                    self.start = [x, y]
                 self.nodes[y][x].tile_type = icons[
                     each.tile_type if each.tile_type != "trap" else "plain"
                 ]

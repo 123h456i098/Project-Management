@@ -2,17 +2,9 @@ from random import randint
 from PySide6 import QtWidgets as qw, QtCore as qc
 from main_files.ask_question import Ask_Question
 
-# shop screen
-# decide what rewards are available and for what prices?
-# buttons to buy, make sure have enough money to buy,
-# needs to save what has been bought and the current inventory so users can't
-# continuously reroll
-# if there is only one shop per round, can just hide and show the same screen
-# but not sure what do do for more than one shop
-
 
 class Shop(qw.QMainWindow):
-    def __init__(self, end_function, coins):
+    def __init__(self, end_function, coins, level):
         super().__init__()
         self.p_coins = coins
         self.end_function = end_function
@@ -51,7 +43,7 @@ color: black;
         self.tags = ["An answer", "Some EXP", "Some stamina"]
         self.prices = [randint(2, 4) for _ in range(3)]
         self.products = [
-            Ask_Question().get_answer(),
+            Ask_Question(level).get_answer(),
             randint(1, 3),
             randint(3, 5),
         ]
@@ -88,7 +80,10 @@ background-color: rgba(255, 255, 255, 150);
             self.exit_button.setText(f"Back   (you have ${self.p_coins})")
             tag = self.tags.pop(index)
             if tag == "An answer":
-                text = f"Q: {self.products[index][0]}\nA: {self.products[index][1]}"
+                text = (
+                    f"Q: {self.products[index][0]}\n"
+                    f"A: {self.products[index][1]}"
+                )
             else:
                 text = f"You get: +{self.products[index]} {tag.split(' ')[1]}"
             qw.QMessageBox(

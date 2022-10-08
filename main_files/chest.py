@@ -4,9 +4,9 @@ import random
 
 
 class Chest(qw.QMainWindow):
-    def __init__(self, end_function):
+    def __init__(self, end_function, level):
         super().__init__()
-        self.question_machine = Ask_Question()
+        self.question_machine = Ask_Question(level)
         self.end_func = end_function
         self.setWindowTitle("Chest")
         self.setFixedSize(400, 300)
