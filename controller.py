@@ -4,22 +4,18 @@ from main_files.fighting import FightView
 from main_files.question import Question
 from main_files.chest import Chest
 from main_files.shop import Shop
+from main_files.end_quiz import Quiz
+from base_workings.player import Player
 
 
 class Controller:
-    def __init__(self, view, w, h, player, level):
-        self.level = level
+    def __init__(self, w, h, view):
         self.view = view
-        h += 1 if h % 2 == 0 else 0
-        w += 1 if w % 2 == 0 else 0
-        self.board = MapBoard(w, h)
-        self.player = player
-        self.player.set_up(
-            self.board.start, self.board.nodes, w, h, self.on_player_level_up
-        )
-
+        self.level = 1
+        self.h = h + 1 if h % 2 == 0 else 0
+        self.w = w + 1 if w % 2 == 0 else 0
+        self.player = Player()
         self.view.set_controllers_action_function(self.action)
-        self.view.set_controllers_enter_function(lambda: None)
         self.actions = {
             "Trap": self.trap,
             "Fight": self.open_fight_view,
@@ -28,6 +24,28 @@ class Controller:
             "Shop": self.open_shop,
             "Finish": lambda: print("finish"),
         }
+        self.reset()
+
+    def reset(self):
+        self.board = MapBoard(self.w, self.h)
+        self.view.set_window_title(self.level)
+        self.player.set_up(
+            self.board.start,
+            self.board.nodes,
+            self.w,
+            self.h,
+            self.on_player_level_up,
+        )
+
+        self.view.set_controllers_enter_function(lambda: None)
+
+    def end_quiz(self):
+        self.quiz = Quiz(self.player, self._done_end_quiz, self.level)
+        self.quiz.show()
+        self.view.hide()
+
+    def _done_end_quiz(self):
+        pass
 
     def on_player_level_up(self, level):
         text = (
