@@ -98,11 +98,11 @@
         "wrong3": "Lute"
     },
     {
-        "question": "What was the first public performance at the Sydney Opera House? ",
+        "question": "What was the first public performance at the Sydney Opera House?",
         "correct": "War and Peace",
         "wrong1": "Lads and Lasses",
         "wrong2": "Westside Story",
-        "wrong3": "Romeo and Juliette"
+        "wrong3": "Romeo and Juliet"
     },
     {
         "question": "Which international rock star is thought to have given the WORST Grand Final pre-game show ever in 2011? ",
@@ -282,9 +282,9 @@
     {
         "question": "How long is the biggest saltwater crocodile ever caught in Australia? ",
         "correct": "6.17m",
-        "wrong1": "5.17",
-        "wrong2": "5.57",
-        "wrong3": "6.57"
+        "wrong1": "5.17m",
+        "wrong2": "5.57m",
+        "wrong3": "6.57m"
     },
     {
         "question": "What is the collective noun for a group of Kangaroos? ",

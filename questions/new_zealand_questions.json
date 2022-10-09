@@ -93,9 +93,9 @@
     {
         "question": "What is the Maori name for New Zealand?",
         "correct": "Aotearoa",
-        "wrong1": "Whakatū",
+        "wrong1": "Whakatu",
         "wrong2": "Te Tihi-o-Maru",
-        "wrong3": "Ōtautahi"
+        "wrong3": "Otautahi"
     },
     {
         "question": "St Kilda, Woodhaugh, Caversham and Forbury are all suburbs of which South Island city?",
@@ -177,9 +177,9 @@
     {
         "question": "In which South Island town can a great big monument of a fish be seen when you drive in?",
         "correct": "Rakaia",
-        "wrong1": "Whaikōrero",
+        "wrong1": "Whaikorero",
         "wrong2": "Tangihanga",
-        "wrong3": "Kaikōrero"
+        "wrong3": "Kaikorero"
     },
     {
         "question": "What is the name of the southern hemisphere's deepest cave system?",
@@ -200,7 +200,7 @@
         "correct": "Rakiura",
         "wrong1": "Nikau",
         "wrong2": "Aroha",
-        "wrong3": "Hīkoi"
+        "wrong3": "Hikoi"
     },
     {
         "question": "What is the name of the main seaside suburb of Christchurch?",

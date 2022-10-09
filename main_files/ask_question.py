@@ -12,7 +12,8 @@ class Ask_Question:
         self.correct = correct
         self.wrong = wrong
         self.back_to_main_screen = back_to_main_screen
-        file_name = f"questions/{level_questions[level-1]}_questions.json"
+        file_name = f"questions/{level_questions[level]}_questions.json"
+        print(file_name)
         with open(file_name, "r") as read_file:
             self.questions = json.load(read_file)
         print(self.questions)
@@ -24,18 +25,20 @@ class Ask_Question:
         return text, correct
 
     def ask_question(self):
-        self.vbox2 = qw.QVBoxLayout()
-        self.question_view = qw.QWidget()
-        self.question_view.setLayout(self.vbox2)
         question = random.choice(self.questions)
         text = question["question"]
         correct = question["correct"]
         wrongs = [question["wrong1"], question["wrong2"], question["wrong3"]]
         answers = wrongs + [correct]
+        self.display_question(text, correct, answers)
+
+    def display_question(self, text, correct, answers):
+        self.vbox2 = qw.QVBoxLayout()
+        self.question_view = qw.QWidget()
+        self.question_view.setLayout(self.vbox2)
         self.question = qw.QLabel(text)
         self.question.setWordWrap(True)
         self.question.setFixedWidth(350)
-        # self.question.setFixedHeight(40)
         self.vbox2.addWidget(self.question, 0, qc.Qt.AlignCenter)
         self.vbox2.addStretch()
         random.shuffle(answers)
@@ -49,6 +52,24 @@ class Ask_Question:
                     i, each, correct
                 )
             )
+
+    def ask_quiz(self):
+        questions = random.sample(self.questions, 10)
+        texts = []
+        corrects = []
+        answers = []
+        for question in questions:
+            texts.append(question["question"])
+            corrects.append(question["correct"])
+            answers.append(
+                [
+                    question["wrong1"],
+                    question["wrong2"],
+                    question["wrong3"],
+                    question["correct"],
+                ]
+            )
+        return texts, corrects, answers
 
     def answer_question(self, index, answer, correct):
         style = f"""

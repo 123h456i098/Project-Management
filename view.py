@@ -42,6 +42,12 @@ margin: 2px;
         self.controllers_action_function = None
         self.controllers_enter_function = None
 
+    def reset(self):
+        self.stats.clear()
+        while self.grid.count():
+            child = self.grid.takeAt(0)
+            child.widget().deleteLater()
+
     def set_window_title(self, level):
         self.setWindowTitle(f"Dungeon Explorer - Level {level}")
 
@@ -104,8 +110,7 @@ margin: 2px;
 def main():
     app = qw.QApplication([])
     win = View()
-    controller = Controller(20, 20, win)
-    controller.start()
+    Controller(20, 20, win)
     win.show()
     exit(app.exec())
 

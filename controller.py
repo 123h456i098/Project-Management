@@ -22,11 +22,15 @@ class Controller:
             "Question": self.open_question,
             "Chest": self.open_chest,
             "Shop": self.open_shop,
-            "Finish": lambda: print("finish"),
+            "Finish": self.end_quiz,
         }
-        self.reset()
+        self.startup()
 
     def reset(self):
+        self.view.reset()
+        self.startup()
+
+    def startup(self):
         self.board = MapBoard(self.w, self.h)
         self.view.set_window_title(self.level)
         self.player.set_up(
@@ -36,16 +40,22 @@ class Controller:
             self.h,
             self.on_player_level_up,
         )
-
         self.view.set_controllers_enter_function(lambda: None)
+        self.start()
 
     def end_quiz(self):
         self.quiz = Quiz(self.player, self._done_end_quiz, self.level)
         self.quiz.show()
         self.view.hide()
 
-    def _done_end_quiz(self):
-        pass
+    def _done_end_quiz(self, next_level):
+        if next_level:
+            self.level += 1
+            self.reset()
+            self.quiz.hide()
+            self.view.show()
+        else:
+            self.on_player_death()
 
     def on_player_level_up(self, level):
         text = (
@@ -53,6 +63,10 @@ class Controller:
             + "Your max stamina has increased."
         )
         self.view.message_box(["Level up!", text])
+
+    def on_player_death(self):
+        print(f"You died!\nYou reached dungeon level {self.level}")
+        self.view.close()
 
     def trap(self):
         self.player.stamina -= 1
@@ -122,8 +136,7 @@ class Controller:
             self._update_toolbar_labels()
             self.view.show()
         else:
-            print("you died")
-            self.view.close()
+            self.on_player_death()
 
     def done_shop(self, coins, exp, health):
         self.view.set_controllers_enter_function(lambda: None)
