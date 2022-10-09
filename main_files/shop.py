@@ -99,9 +99,6 @@ background-color: rgba(255, 255, 255, 150);
 
             widget = self.stock.pop(index)
             widget.setParent(None)
-        else:
-            print("not enough money")
-
         for i in range(len(self.buttons)):
             self.buttons[i].clicked.disconnect()
             self.buttons[i].clicked.connect(lambda sac=None, i=i: self.buy(i))

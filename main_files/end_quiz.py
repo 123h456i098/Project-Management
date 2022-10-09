@@ -60,9 +60,7 @@ color: white;
             child.widget().deleteLater()
 
     def next_question(self):
-        print(self.question_num)
         if self.question_num >= 11:
-            print("test")
             self.end_function(True)
         else:
             self.clear_layout()

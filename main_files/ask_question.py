@@ -13,10 +13,8 @@ class Ask_Question:
         self.wrong = wrong
         self.back_to_main_screen = back_to_main_screen
         file_name = f"questions/{level_questions[level]}_questions.json"
-        print(file_name)
         with open(file_name, "r") as read_file:
             self.questions = json.load(read_file)
-        print(self.questions)
 
     def get_answer(self):
         question = random.choice(self.questions)
