@@ -107,6 +107,9 @@ class Controller:
         if s is None:
             s = Shop(self.done_shop, self.player.coins, self.level)
             self.board.nodes[self.player.pos[1]][self.player.pos[0]].view = s
+        else:
+            s.p_coins = self.player.coins
+            s.exit_button.setText(f"Back   (you have ${s.p_coins})")
         s.show()
         self.view.hide()
 
