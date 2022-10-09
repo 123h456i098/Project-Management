@@ -81,7 +81,10 @@ class Controller:
 
     def trap(self):
         self.player.stamina -= 1
-        self._update_toolbar_labels()
+        if self.player.stamina <= 0:
+            self.on_player_death()
+        else:
+            self._update_toolbar_labels()
 
     # region - Open views
     def open_fight_view(self):

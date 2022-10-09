@@ -115,7 +115,7 @@ color: white;
             2,
             qc.Qt.AlignCenter,
         )
-        submit_button = qw.QPushButton("Submit")
+        submit_button = qw.QPushButton("Continue")
         submit_button.clicked.connect(
             lambda: self.end_function(self.p_health, self.exp_to_get, coin)
         )
