@@ -15,18 +15,19 @@ class Chest(qw.QMainWindow):
         self.setCentralWidget(qw.QWidget())
         self.centralWidget().setObjectName("main_body")
         self.setStyleSheet(
-            """
-#main_body {
-border-image: url("Images/backgrounds/chest1.png");
+            f"""
+#main_body {{
+border-image: url("Images/backgrounds/chest{random.randint(1, 3)}.png");
 background-repeat: no-repeat;
 background-position: center;
-}
+}}
 
-QLabel {
+QLabel {{
 color: black;
-}
+}}
 """
         )
+
         self.make_reward()
         self.add_widgets()
 

@@ -50,12 +50,23 @@ class Controller:
 
     def _done_end_quiz(self, next_level):
         if next_level:
-            self.level += 1
-            self.reset()
-            self.quiz.hide()
-            self.view.show()
+            if self.level == 4:
+                self.quiz.close()
+                self.view.show()
+                self.on_player_win()
+            else:
+                self.level += 1
+                self.reset()
+                self.quiz.close()
+                self.view.show()
         else:
+            self.quiz.close()
+            self.view.show()
             self.on_player_death()
+
+    def on_player_win(self):
+        print("Congradulations, you have won!")
+        self.view.close()
 
     def on_player_level_up(self, level):
         text = (

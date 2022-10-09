@@ -23,16 +23,16 @@ class FightView(qw.QMainWindow):
         self.setCentralWidget(qw.QWidget())
         self.centralWidget().setObjectName("main_body")
         self.setStyleSheet(
-            """
-#main_body {
-border-image: url("Images/backgrounds/monster1.png");
+            f"""
+#main_body {{
+border-image: url("Images/backgrounds/monster{level}.png");
 background-repeat: no-repeat;
 background-position: center;
-}
+}}
 
-QLabel {
+QLabel {{
 color: white;
-}
+}}
 """
         )
         self.stacked = qw.QStackedLayout()

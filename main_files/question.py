@@ -1,3 +1,4 @@
+import random
 from main_files.ask_question import Ask_Question
 from PySide6 import QtWidgets as qw
 
@@ -17,15 +18,15 @@ class Question(qw.QMainWindow):
         self.question_machine.ask_question()
         self.setCentralWidget(self.question_machine.question_view)
         self.setStyleSheet(
-            """
-QMainWindow {
-border-image: url("Images/backgrounds/question1.png");
+            f"""
+QMainWindow {{
+border-image: url("Images/backgrounds/question{random.randint(1, 2)}.png");
 background-repeat: no-repeat;
 background-position: center;
-}
-QLabel {
+}}
+QLabel {{
 color: white;
-}
+}}
 """
         )
 

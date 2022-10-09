@@ -16,6 +16,20 @@ class Quiz(qw.QMainWindow):
         self.setWindowTitle(f"Level {level} - Quiz")
         self.setFixedSize(400, 300)
         self.setCentralWidget(qw.QWidget())
+        self.centralWidget().setObjectName("main_body")
+        self.setStyleSheet(
+            f"""
+#main_body {{
+border-image: url("Images/backgrounds/monster5.png");
+background-repeat: no-repeat;
+background-position: center;
+}}
+
+QLabel {{
+color: white;
+}}
+"""
+        )
         self.vbox = qw.QVBoxLayout()
         self.centralWidget().setLayout(self.vbox)
         self.question_num = 1
