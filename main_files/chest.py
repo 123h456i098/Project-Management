@@ -17,7 +17,7 @@ class Chest(qw.QMainWindow):
         self.setStyleSheet(
             f"""
 #main_body {{
-border-image: url("Images/backgrounds/chest{random.randint(1, 3)}.png");
+border-image: url("Images/backgrounds/chest.png");
 background-repeat: no-repeat;
 background-position: center;
 }}
