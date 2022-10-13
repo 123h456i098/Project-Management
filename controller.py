@@ -219,6 +219,7 @@ class Controller:
         last_action = self.view.stats.actions()[-1]
         if last_action.text() != "":
             self.view.stats.removeAction(last_action)
+            self.view.set_controllers_enter_function(lambda: None)
 
         if current_tile.tile.action_type == "C":
             self.view.stats.addAction(
