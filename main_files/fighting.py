@@ -47,7 +47,7 @@ color: white;
     def add_info_to_screen(self):
         self.monster_health_bar = qw.QLabel(
             f"Monster: {self.health}/{self.exp_to_get}"
-            "   (Roll a 5 or higher in one roll to deal damage)"
+            "   (Roll a 5 or higher in one roll to deal 1 damage)"
         )
         self.get_dice = qw.QPushButton("Get Dice")
         self.get_dice.clicked.connect(self.ask_question)
@@ -81,7 +81,7 @@ color: white;
             self.reward_screen()
         self.monster_health_bar.setText(
             f"Monster: {self.health}/{self.exp_to_get}"
-            "    (Roll a 5 or higher to deal damage)"
+            "   (Roll a 5 or higher in one roll to deal 1 damage)"
         )
 
     def reward_screen(self):

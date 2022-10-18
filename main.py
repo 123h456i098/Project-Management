@@ -49,7 +49,9 @@ margin: 2px;
             child.widget().deleteLater()
 
     def set_window_title(self, level):
-        self.setWindowTitle(f"Dungeon Explorer - Level {level}")
+        countries = ["Australia", "England", "Japan", "New Zealand"]
+        self.setWindowTitle("Dungeon Explorer - "
+                            f"Level {level} ({countries[level-1]})")
 
     def set_controllers_action_function(self, function):
         self.controllers_action_function = function

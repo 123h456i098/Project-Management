@@ -12,7 +12,7 @@ class Ask_Question:
         self.correct = correct
         self.wrong = wrong
         self.back_to_main_screen = back_to_main_screen
-        file_name = f"questions/{level_questions[level]}_questions.json"
+        file_name = f"questions/{level_questions[level - 1]}_questions.json"
         with open(file_name, "r") as read_file:
             self.questions = json.load(read_file)
 
