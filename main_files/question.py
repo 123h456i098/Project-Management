@@ -4,7 +4,7 @@ from PySide6 import QtWidgets as qw
 
 
 class Question(qw.QMainWindow):
-    def __init__(self, end_function, level):
+    def __init__(self, end_function: callable, level: int):
         super().__init__()
         self.question_machine = Ask_Question(
             level,
@@ -30,11 +30,11 @@ color: white;
 """
         )
 
-    def get_question_right(self):
+    def get_question_right(self) -> None:
         self.answer_status = True
 
-    def take_damage(self):
+    def take_damage(self) -> None:
         self.answer_status = False
 
-    def back_to_main_screen(self):
+    def back_to_main_screen(self) -> None:
         self.end_function(self.answer_status)

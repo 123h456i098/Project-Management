@@ -1,3 +1,4 @@
+from typing import List
 from PySide6 import QtWidgets as qw, QtCore as qc, QtGui as qg
 from sys import exit
 from controller import Controller
@@ -6,7 +7,7 @@ from PIL.ImageQt import ImageQt
 
 
 class View(qw.QMainWindow):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.setWindowTitle("Dungeon Explorer")
         self.setCentralWidget(qw.QWidget())
@@ -42,35 +43,35 @@ margin: 2px;
         self.controllers_action_function = None
         self.controllers_enter_function = None
 
-    def reset(self):
+    def reset(self) -> None:
         self.stats.clear()
-        while self.grid.count():
-            child = self.grid.takeAt(0)
-            child.widget().deleteLater()
+        while self.grid.count() > 0:
+            self.grid.takeAt(0).widget().deleteLater()
 
-    def set_window_title(self, level):
+    def set_window_title(self, level: int) -> None:
         countries = ["Australia", "England", "Japan", "New Zealand"]
-        self.setWindowTitle("Dungeon Explorer - "
-                            f"Level {level} ({countries[level-1]})")
+        self.setWindowTitle(
+            "Dungeon Explorer - " f"Level {level} ({countries[level-1]})"
+        )
 
-    def set_controllers_action_function(self, function):
+    def set_controllers_action_function(self, function: callable) -> None:
         self.controllers_action_function = function
 
-    def set_controllers_enter_function(self, function):
+    def set_controllers_enter_function(self, function: callable) -> None:
         self.controllers_enter_function = function
 
-    def message_box(self, text):
+    def message_box(self, text: List[str]) -> None:
         qw.QMessageBox(qw.QMessageBox.Information, text[0], text[1]).exec()
 
-    def add_label_to_toolbar(self, text):
+    def add_label_to_toolbar(self, text: str) -> None:
         label = qw.QLabel(text)
         self.toolbar_labels.append(label)
         self.stats.addWidget(label)
 
-    def remove_label_from_toolbar(self, label):
+    def remove_label_from_toolbar(self, label: qw.QLabel) -> None:
         label.deleteLater()
 
-    def keyPressEvent(self, event):
+    def keyPressEvent(self, event: qg.QKeyEvent) -> None:
         match event.key():
             case qc.Qt.Key_Up | qc.Qt.Key_W:
                 self.controllers_action_function("up")
@@ -83,26 +84,23 @@ margin: 2px;
             case qc.Qt.Key_Return:
                 self.controllers_enter_function()
 
-    def add_tile_to_grid(self, filename, x: int, y: int):
+    def add_tile_to_grid(self, filename: str, x: int, y: int) -> None:
         image = Image.open(filename)
         qImg = ImageQt(image)
         pixmap01 = qg.QPixmap.fromImage(qImg)
-        pixmap_image = qg.QPixmap(pixmap01).scaled(
-            27, 27, qc.Qt.KeepAspectRatio
-        )
+        pixmap_image = qg.QPixmap(pixmap01).scaled(27, 27, qc.Qt.KeepAspectRatio)
         self.add_image_to_grid(x, y, pixmap_image)
 
-    def add_image_to_grid(self, x, y, pixmap_image):
+    def add_image_to_grid(self, x: int, y: int, pixmap_image: qg.QPixmap) -> None:
         tile = qw.QLabel()
         tile.setPixmap(pixmap_image)
         tile.setAlignment(qc.Qt.AlignCenter)
         self.grid.addWidget(tile, y, x)
 
-    def remove_tile_from_grid(self, x: int, y: int):
-        tile = self.grid.itemAtPosition(y, x)
-        tile.widget().setParent(None)
+    def remove_tile_from_grid(self, x: int, y: int) -> None:
+        self.grid.itemAtPosition(y, x).widget().setParent(None)
 
-    def remove_player_from_grid(self, x: int, y: int):
+    def remove_player_from_grid(self, x: int, y: int) -> None:
         pixmap_image = self.grid.itemAtPosition(y, x).widget().pixmap()
         self.remove_tile_from_grid(x, y)
         self.remove_tile_from_grid(x, y)

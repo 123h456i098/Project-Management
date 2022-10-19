@@ -1,4 +1,5 @@
 import json
+from typing import List
 from PySide6 import QtWidgets as qw, QtCore as qc
 import random
 
@@ -7,7 +8,11 @@ level_questions = ["australia", "england", "japan", "new_zealand"]
 
 class Ask_Question:
     def __init__(
-        self, level, back_to_main_screen=None, correct=None, wrong=None
+        self,
+        level: int,
+        back_to_main_screen: callable = None,
+        correct: callable = None,
+        wrong: callable = None,
     ):
         self.correct = correct
         self.wrong = wrong
@@ -16,13 +21,13 @@ class Ask_Question:
         with open(file_name, "r") as read_file:
             self.questions = json.load(read_file)
 
-    def get_answer(self):
+    def get_answer(self) -> None:
         question = random.choice(self.questions)
         text = question["question"]
         correct = question["correct"]
         return text, correct
 
-    def ask_question(self):
+    def ask_question(self) -> None:
         question = random.choice(self.questions)
         text = question["question"]
         correct = question["correct"]
@@ -30,7 +35,7 @@ class Ask_Question:
         answers = wrongs + [correct]
         self.display_question(text, correct, answers)
 
-    def display_question(self, text, correct, answers):
+    def display_question(self, text: str, correct: str, answers: List[str]) -> None:
         self.vbox2 = qw.QVBoxLayout()
         self.question_view = qw.QWidget()
         self.question_view.setLayout(self.vbox2)
@@ -46,12 +51,10 @@ class Ask_Question:
             self.vbox2.addWidget(button)
             self.buttons.append(button)
             button.clicked.connect(
-                lambda _=None, i=i, each=each: self.answer_question(
-                    i, each, correct
-                )
+                lambda _=None, i=i, each=each: self.answer_question(i, each, correct)
             )
 
-    def ask_quiz(self):
+    def ask_quiz(self) -> None:
         questions = random.sample(self.questions, 10)
         texts = []
         corrects = []
@@ -69,7 +72,7 @@ class Ask_Question:
             )
         return texts, corrects, answers
 
-    def answer_question(self, index, answer, correct):
+    def answer_question(self, index: int, answer: str, correct: str) -> None:
         style = f"""
 QPushButton {{
 background-color: {"green" if answer == correct else "red"};

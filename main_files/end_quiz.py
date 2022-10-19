@@ -1,9 +1,10 @@
 from PySide6 import QtWidgets as qw
 from main_files.ask_question import Ask_Question
+from base_workings.player import Player
 
 
 class Quiz(qw.QMainWindow):
-    def __init__(self, player, end_function, level):
+    def __init__(self, player: Player, end_function: callable, level: int):
         super().__init__()
         self.question_machine = Ask_Question(
             level,
@@ -40,7 +41,7 @@ color: white;
         ) = self.question_machine.ask_quiz()
         self.display_question()
 
-    def display_question(self):
+    def display_question(self) -> None:
         self.progress = qw.QLabel(f"Quiz progress: {self.question_num}/10")
         self.p_stamina = qw.QLabel(
             f"Your stamina: {self.player.stamina}/{self.player.max_stamina}"
@@ -54,22 +55,22 @@ color: white;
         self.vbox.addWidget(self.question_machine.question_view)
         self.vbox.addWidget(self.p_stamina)
 
-    def clear_layout(self):
+    def clear_layout(self) -> None:
         while self.vbox.count():
             child = self.vbox.takeAt(0)
             child.widget().deleteLater()
 
-    def next_question(self):
+    def next_question(self) -> None:
         if self.question_num >= 11:
             self.end_function(True)
         else:
             self.clear_layout()
             self.display_question()
 
-    def take_damage(self):
+    def take_damage(self) -> None:
         self.player.stamina -= 1
         if self.player.stamina <= 0:
             self.end_function(False)
 
-    def correct(self):
+    def correct(self) -> None:
         self.question_num += 1

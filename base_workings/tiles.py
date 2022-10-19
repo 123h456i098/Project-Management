@@ -8,17 +8,17 @@ class Tile:
     _action: str
 
     @property
-    def walkable(self):
+    def walkable(self) -> bool:
         # To see if the tile can be walked on
         return self._walkable
 
     @property
-    def action_type(self):
+    def action_type(self) -> str:
         # To see if the action is (C)hoice, or (F)orced
         return self._action_type
 
     @property
-    def action(self):
+    def action(self) -> str:
         # To see what the action is
         return self._action
 

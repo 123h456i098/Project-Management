@@ -4,7 +4,7 @@ import random
 
 
 class Chest(qw.QMainWindow):
-    def __init__(self, end_function, level):
+    def __init__(self, end_function: callable, level: int):
         super().__init__()
         self.question_machine = Ask_Question(level)
         self.end_func = end_function
@@ -31,7 +31,7 @@ color: black;
         self.make_reward()
         self.add_widgets()
 
-    def make_reward(self):
+    def make_reward(self) -> None:
         self.gold = 0
         self.health = 0
         match self.reward:
@@ -49,7 +49,7 @@ color: black;
                 self.health = hurt * -1
                 self.text = f"-{hurt} stamina"
 
-    def add_widgets(self):
+    def add_widgets(self) -> None:
         self.grid = qw.QGridLayout()
         self.accept = qw.QPushButton("Open chest")
         self.accept.clicked.connect(self.accept_reward)
@@ -60,13 +60,11 @@ color: black;
         self.grid.addWidget(self.accept, 3, 1)
         self.centralWidget().setLayout(self.grid)
 
-    def accept_reward(self):
+    def accept_reward(self) -> None:
         reward = qw.QLabel(self.text)
         reward.setFont(qg.QFont("Consolas", 24))
         reward.setWordWrap(True)
         reward.setFixedWidth(350)
         self.grid.addWidget(reward, 1, 1)
         self.accept.setText("Collect")
-        self.accept.clicked.connect(
-            lambda: self.end_func(self.gold, self.health)
-        )
+        self.accept.clicked.connect(lambda: self.end_func(self.gold, self.health))

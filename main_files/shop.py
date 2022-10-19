@@ -4,7 +4,7 @@ from main_files.ask_question import Ask_Question
 
 
 class Shop(qw.QMainWindow):
-    def __init__(self, end_function, coins, level):
+    def __init__(self, end_function: callable, coins: int, level: int):
         super().__init__()
         self.p_coins = coins
         self.end_function = end_function
@@ -32,9 +32,7 @@ color: black;
         self.centralWidget().setLayout(self.vbox)
         self.exit_button = qw.QPushButton(f"Back   (you have ${self.p_coins})")
         self.exit_button.clicked.connect(
-            lambda: self.end_function(
-                self.p_coins, self.exp_to_get, self.health_to_get
-            )
+            lambda: self.end_function(self.p_coins, self.exp_to_get, self.health_to_get)
         )
         self.vbox.addWidget(self.exit_button)
         self.hbox = qw.QHBoxLayout()
@@ -73,17 +71,14 @@ background-color: rgba(255, 255, 255, 150);
             # Some labels and a button that buys the item, clears it from shop
             # and displays in a message box to user
 
-    def buy(self, index):
+    def buy(self, index: int) -> None:
         price = self.prices[index]
         if self.p_coins >= price:
             self.p_coins -= self.prices.pop(index)
             self.exit_button.setText(f"Back   (you have ${self.p_coins})")
             tag = self.tags.pop(index)
             if tag == "An answer":
-                text = (
-                    f"Q: {self.products[index][0]}\n"
-                    f"A: {self.products[index][1]}"
-                )
+                text = f"Q: {self.products[index][0]}\n" f"A: {self.products[index][1]}"
             else:
                 text = f"You get: +{self.products[index]} {tag.split(' ')[1]}"
             qw.QMessageBox(

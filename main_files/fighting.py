@@ -1,10 +1,11 @@
 from PySide6 import QtWidgets as qw, QtCore as qc
 import random
 from main_files.ask_question import Ask_Question
+from base_workings.player import Player
 
 
 class FightView(qw.QMainWindow):
-    def __init__(self, player, end_function, level):
+    def __init__(self, player: Player, end_function: callable, level: int):
         super().__init__()
         self.question_machine = Ask_Question(
             level,
@@ -44,7 +45,7 @@ color: white;
         self.stacked.setCurrentIndex(0)
         self.add_info_to_screen()
 
-    def add_info_to_screen(self):
+    def add_info_to_screen(self) -> None:
         self.monster_health_bar = qw.QLabel(
             f"Monster: {self.health}/{self.exp_to_get}"
             "   (Roll a 5 or higher in one roll to deal 1 damage)"
@@ -63,7 +64,7 @@ color: white;
         self.vbox1.addStretch()
         self.vbox1.addWidget(self.p_health_bar)
 
-    def damage_roll(self):
+    def damage_roll(self) -> None:
         if self.num_dice > 0:
             rolls = [random.randint(1, 6) for _ in range(self.num_dice)]
             text = f"[{', '.join(map(str, rolls))}] - Roll {self.num_dice}"
@@ -75,7 +76,7 @@ color: white;
             text = "Get a goddamnned dice!"
         self.roll.setText(text)
 
-    def do_damage(self):
+    def do_damage(self) -> None:
         self.health -= 1
         if self.health <= 0:
             self.reward_screen()
@@ -84,7 +85,7 @@ color: white;
             "   (Roll a 5 or higher in one roll to deal 1 damage)"
         )
 
-    def reward_screen(self):
+    def reward_screen(self) -> None:
         reward = qw.QWidget()
         self.stacked.addWidget(reward)
         self.grid = qw.QGridLayout()
@@ -103,7 +104,7 @@ color: white;
         self.grid.setRowStretch(3, 1)
         self.stacked.setCurrentIndex(1)
 
-    def get_reward(self, reward):
+    def get_reward(self, reward: str) -> None:
         self.question_button.setEnabled(False)
         self.coin_button.setEnabled(False)
         coin = int(reward if reward.isdigit() else "0")
@@ -121,23 +122,23 @@ color: white;
         )
         self.grid.addWidget(submit_button, 5, 0, 1, 2, qc.Qt.AlignCenter)
 
-    def ask_question(self):
+    def ask_question(self) -> None:
         self.question_machine.ask_question()
         self.stacked.addWidget(self.question_machine.question_view)
         self.stacked.setCurrentIndex(1)
 
-    def back_to_main_screen(self):
+    def back_to_main_screen(self) -> None:
         self.stacked.setCurrentIndex(0)
         self.stacked.removeWidget(self.question_machine.question_view)
 
-    def get_question_right(self):
+    def get_question_right(self) -> None:
         self.num_dice += 1
         self.roll.setText(f"Roll {self.num_dice}")
         self.p_health_bar.setText(
             f"{self.p_health}/{self.p_max_health} - {self.num_dice} x 🎲"
         )
 
-    def take_damage(self):
+    def take_damage(self) -> None:
         self.p_health -= 1
         if self.p_health <= 0:
             self.end_function(self.p_health, 0, 0)

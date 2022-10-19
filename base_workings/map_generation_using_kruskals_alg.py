@@ -1,10 +1,12 @@
 import random
-from typing import List
+from typing import List, TypeVar
 from base_workings.tiles import tiles, icons
+
+T = TypeVar("T", bound="Node")
 
 
 class Node:
-    def __init__(self, x: int, y: int, tile_type: str):
+    def __init__(self: T, x: int, y: int, tile_type: str):
         self.x = x
         self.y = y
         self.tile_type = tile_type
@@ -12,7 +14,7 @@ class Node:
         self.tile = tiles["plain"]
         self.view = None
 
-    def find_root(self):  # why -> Node: not defined?
+    def find_root(self: T) -> T:
         parent = self
         while parent.parent_node is not None:
             parent = parent.parent_node
@@ -31,7 +33,7 @@ class MapBoard:
         self.add_tiles()
         self.display()
 
-    def create_board(self, w, h):
+    def create_board(self, w: int, h: int) -> None:
         tile = True
         for y in range(h):
             self.nodes.append([])
@@ -46,7 +48,7 @@ class MapBoard:
 
                 tile = not tile
 
-    def kruskals_alg(self):
+    def kruskals_alg(self) -> None:
         random.shuffle(self.edges)
         while len(self.edges) > 0:
             x, y = self.edges.pop()
@@ -75,7 +77,7 @@ class MapBoard:
         random.shuffle(tiles)
         return tiles
 
-    def add_tiles(self):  # There has to be a better way to do this
+    def add_tiles(self) -> None:
         for tile_type in self.create_tiles():
             tile = ""
             while tile != "plain":
@@ -84,7 +86,7 @@ class MapBoard:
                 ].tile_type
             self.nodes[y][x].tile_type = tile_type
 
-    def display(self):  # There has to be a better way to do this
+    def display(self) -> None:
         for y, row in enumerate(self.nodes):
             for x, each in enumerate(row):
                 each.tile = tiles[each.tile_type]
