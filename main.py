@@ -85,13 +85,18 @@ margin: 2px;
                 self.controllers_enter_function()
 
     def add_tile_to_grid(self, filename: str, x: int, y: int) -> None:
+        """Code courtesy of https://github.com/Benjymack, thanks!"""
         image = Image.open(filename)
         qImg = ImageQt(image)
         pixmap01 = qg.QPixmap.fromImage(qImg)
-        pixmap_image = qg.QPixmap(pixmap01).scaled(27, 27, qc.Qt.KeepAspectRatio)
+        pixmap_image = qg.QPixmap(pixmap01).scaled(
+            27, 27, qc.Qt.KeepAspectRatio
+        )
         self.add_image_to_grid(x, y, pixmap_image)
 
-    def add_image_to_grid(self, x: int, y: int, pixmap_image: qg.QPixmap) -> None:
+    def add_image_to_grid(
+        self, x: int, y: int, pixmap_image: qg.QPixmap
+    ) -> None:
         tile = qw.QLabel()
         tile.setPixmap(pixmap_image)
         tile.setAlignment(qc.Qt.AlignCenter)
