@@ -6,11 +6,10 @@ from main_files.chest import Chest
 from main_files.shop import Shop
 from main_files.end_quiz import Quiz
 from base_workings.player import Player
-from main import View
 
 
 class Controller:
-    def __init__(self, w: int, h: int, view: View):
+    def __init__(self, w: int, h: int, view):
         self.view = view
         self.level = 1
         self.h = h + 1 if h % 2 == 0 else 0
