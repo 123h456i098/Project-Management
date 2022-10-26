@@ -1,5 +1,5 @@
 .pytest_cache/
 .vscode/
-__pycache__/
+**/__pycache__/
 91907_Project_Management_Report.docx
 venv/
